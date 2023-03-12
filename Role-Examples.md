@@ -1,5 +1,3 @@
-# Role Examples
-
 With the help of gpt3.5/chatgpt, as long as appropriate roles/prompts are set, AIChat can do various types of work.
 
 ## Command Prompt

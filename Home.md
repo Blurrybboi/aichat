@@ -1,4 +1,4 @@
 Welcome to the aichat wiki!
 
-- [Environment Variables](./environment-variables)
-- [Role Examples](./role-examples)
+- [Environment Variables](./Environment-Variables)
+- [Role Examples](./Role-Examples)

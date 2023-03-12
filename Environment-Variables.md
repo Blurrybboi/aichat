@@ -1,5 +1,3 @@
-# Environment Variables
-
 AIChat supports the following environment variables:
 
 - `AICHAT_CONFIG_DIR`: specify the configuration directory
