@@ -1,5 +1,3 @@
-# Role Guide
-
 ## Role Structure
 
 Role consists of three parts: `name`, `prompt`, and optional `temperature`
