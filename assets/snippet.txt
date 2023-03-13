@@ -1,0 +1,5 @@
+aichat -r translator:chinese Cease to struggle and you cease to live.
+aichat -r translator:spanish Cease to struggle and you cease to live.
+aichat -r translator:french Cease to struggle and you cease to live.
+
+echo 床前明月光，疑是地上霜 | aichat -r translator:chinese

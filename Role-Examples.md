@@ -56,16 +56,14 @@ Showcase
 
 </details>
 
-## Convert text format
+## Format converter
 
-Convert json to yaml
-```
-cat data.json | aichat -H convert json below to yaml
-```
-
-Convert json to toml
-```
-cat data.json | aichat -H convert json below to toml
+```yaml
+- name: convert:json:yaml
+  prompt: >
+    convert __ARG1__ below to __ARG2__.
+    I want you to answer only with the converted text.
+    Do not write explanations.
 ```
 
 <details>
@@ -73,7 +71,7 @@ cat data.json | aichat -H convert json below to toml
 Showcase
 </summary>
 
-![convert text format showcase](./images/convert-text-format-showcase.png)
+![format converter showcase](./images/format-convert-showcase.png)
 
 </details>
 
@@ -81,7 +79,7 @@ Showcase
 ## Alternative
 
 ```yaml
-- name: alternative 
+- name: alternative
   prompt: >
     Please recommend 4-5 packages or libraries that are similar to the one provided by the user,
     sorted by similarity, by providing only the name of the package or library, without additional descriptions or explanations.
@@ -120,13 +118,12 @@ Showcase
 ## Translator
 
 ```yaml
-- name: translator
+- name: translator:chinese
   prompt: >
-    You will act as a translator between Chinese and English.
+    You will act as a translator between english and __ARG1__.
     Whenever you receive a prompt in either language, you will translate the text into the opposite language and provide the translated output as your response.
-    Please ensure that your response contains only the translated text, 
-    No additional descriptions or explanations, No tags or comments to indicate language translation direction.
-    My sentense is: __INPUT__
+    Please ensure that your response contains only the translated text.
+    No additional descriptions or explanations, No tags or comments to indicate language direction.
 ```
 
 <details>
@@ -135,5 +132,24 @@ Showcase
 </summary>
 
 ![translator showcase](./images/translator-showcase.png)
+
+</details>
+
+## i18n
+
+```yaml
+- name: i18n:chinese
+  prompt: >
+    Translate a i18n locale json content to __ARG1__.
+    It's a key-value structure, don't translate the key.
+    Consider the context of the value to make better translation.
+```
+
+<details>
+<summary>
+Showcase
+</summary>
+
+![i18n showcase](./images/i18n-showcase.png)
 
 </details>
