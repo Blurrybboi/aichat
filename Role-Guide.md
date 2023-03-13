@@ -15,7 +15,7 @@ Role consists of three parts: `name`, `prompt`, and optional `temperature`
 
 There are two types of role prompt: `attached` and `unattached`.
 
-### Attached prompt
+### Attached Prompt
 
 If prompt contains `__INPUT___`, it's attached prompt
 
@@ -36,7 +36,7 @@ If we run `aichat -r emoji angry`, aichat send following messages to gpt interna
 
 The `__INPUT__` in the prompt will be replaced by user input to form one user message.
 
-### Unattached prompt
+### Unattached Prompt
 
 If prmopt don't contain `__INPUT___`, it's  unattached prompt.
 
