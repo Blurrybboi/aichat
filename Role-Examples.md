@@ -1,6 +1,9 @@
 With the help of gpt3.5/chatgpt, as long as appropriate roles/prompts are set, AIChat can do various types of work.
 
-## Command Prompt
+<details>
+<summary>
+<h2>Command Prompt</h2>
+</summary>
 
 ```yaml
 - name: shell
@@ -9,16 +12,16 @@ With the help of gpt3.5/chatgpt, as long as appropriate roles/prompts are set, A
     I want you to answer only with code.
     Do not write explanations.
 ```
-<details>
-<summary>
-Showcase
-</summary>
 
 ![command prompt showcase](./images/command-prompt-showcase.png)
 
 </details>
 
-## Code Generator
+
+<details>
+<summary>
+<h2>Code Generator</h2>
+</summary>
 
 ```yaml
 - name: coder
@@ -29,16 +32,15 @@ Showcase
     Do not write explanations.
 ```
 
-<details>
-<summary>
-Showcase
-</summary>
-
 ![code generator showcase](./images/code-generator-showcase.png)
 
 </details>
 
-## Spell Check
+<details>
+<summary>
+<h2>Spell Check</h2>
+</summary>
+
 
 ```yaml
 - name: spellcheck
@@ -47,16 +49,14 @@ Showcase
     Please provide specific suggestions for corrections and explain any grammar or spelling rules that may be relevant.
 ```
 
-<details>
-<summary>
-Showcase
-</summary>
-
 ![spellcheck showcase](./images/spellcheck-showcase.png)
 
 </details>
 
-## Format converter
+<details>
+<summary>
+<h2>Format converter</h2>
+</summary>
 
 ```yaml
 - name: convert:json:yaml
@@ -66,17 +66,14 @@ Showcase
     Do not write explanations.
 ```
 
-<details>
-<summary>
-Showcase
-</summary>
-
 ![format converter showcase](./images/format-convert-showcase.png)
 
 </details>
 
-
-## Alternative
+<details>
+<summary>
+<h2>Alternative</h2>
+</summary>
 
 ```yaml
 - name: alternative
@@ -85,16 +82,14 @@ Showcase
     sorted by similarity, by providing only the name of the package or library, without additional descriptions or explanations.
 ```
 
-<details>
-<summary>
-Showcase
-</summary>
-
 ![alternative showcase](./images/alternative-showcase.png)
 
 </details>
 
-## Emoji
+<details>
+<summary>
+<h2>Emoji</h2>
+</summary>
 
 ```yaml
 
@@ -106,16 +101,14 @@ Showcase
     I want you to reply only with emojis.
 ```
 
-<details>
-<summary>
-Showcase
-</summary>
-
 ![emoji showcase](./images/emoji-showcase.png)
 
 </details>
 
-## Translator
+<details>
+<summary>
+<h2>Translator</h2>
+</summary>
 
 ```yaml
 - name: translator:chinese
@@ -126,16 +119,14 @@ Showcase
     No additional descriptions or explanations, No tags or comments to indicate language direction.
 ```
 
-<details>
-<summary>
-Showcase
-</summary>
-
 ![translator showcase](./images/translator-showcase.png)
 
 </details>
 
-## i18n
+<details>
+<summary>
+<h2>i18n</h2>
+</summary>
 
 ```yaml
 - name: i18n:chinese
@@ -144,11 +135,6 @@ Showcase
     It's a key-value structure, don't translate the key.
     Consider the context of the value to make better translation.
 ```
-
-<details>
-<summary>
-Showcase
-</summary>
 
 ![i18n showcase](./images/i18n-showcase.png)
 
