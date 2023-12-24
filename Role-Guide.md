@@ -11,23 +11,22 @@ Role consists of three parts: `name`, `prompt`, and optional `temperature`
   temperature: 0.7
 ```
 
-## Role Prompt Type
+## Prompt Type
 
-There are two types of role prompt: `attached` and `unattached`.
+There are two types of prompt: `embeded` and `system`.
 
-### Attached Prompt
+### Embeded Prompt
 
-If prompt contains `__INPUT___`, it's attached prompt
+If prompt contains `__INPUT___`, it's embeded prompt
 
-Here is an example of the attached prompt:
+Here is an example of the embeded prompt:
 
 ```yaml
 - name: emoji
   prompt: convert __INPUT__  to emoji
 ```
 
-If we run `aichat -r emoji angry`, aichat send following messages to gpt internally:
-
+If we run `aichat -r emoji angry`, aichat will generate messages as follows:
 ```json
 [
   {"role": "user", "content": "convert angry to emoji"}
@@ -36,18 +35,18 @@ If we run `aichat -r emoji angry`, aichat send following messages to gpt interna
 
 The `__INPUT__` in the prompt will be replaced by user input to form one user message.
 
-### Unattached Prompt
+### System Prompt
 
-If prmopt don't contain `__INPUT___`, it's  unattached prompt.
+If prmopt don't contain `__INPUT___`, it's  system prompt.
 
-Here is an example of the attached prompt:
+Here is an example of the system prompt:
 
 ```yaml
 - name: emoji
   prompt: convert my words to emoji
 ```
 
-If we run `aichat -r emoji angry`, aichat send following messages to gpt internally:
+If we run `aichat -r emoji angry`, aichat aichat will generate messages as follows:
 
 ```json
 [
@@ -56,8 +55,7 @@ If we run `aichat -r emoji angry`, aichat send following messages to gpt interna
 ]
 ```
 
-Prompt will become a `system` message, user input will become a `user` message.
-
+Prompt will be converted to a 'system' message, while user input will become a 'user' message.
 
 ## Role Args
 
