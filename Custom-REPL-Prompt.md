@@ -20,20 +20,27 @@ The syntax of `{...}` is:
 ## Variables
 
 ```yaml
+# Model
 model: openai:gpt-4
 client_name: openai
 model_name: gpt-4
 max_tokens: 4096
+
+# Config
 temperature: 1.0
 dry_run: true
 save: true
 wrap: 120
 auto_copy: true
+
+# Role/Session
 role: coder
 session: temp
 consume_tokens: 200
 consume_percent: 1%
 user_messages_len: 0
+
+# ANSI COLORS
 color.reset:
 color.black:
 color.dark_gray:
