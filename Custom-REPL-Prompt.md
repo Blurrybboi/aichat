@@ -17,7 +17,7 @@ The syntax of `{...}` is:
 - `{?var <template>}` - Eval `template` when `var` is evaluated as true
 - `{!var <template>}` - Eval `template` when `var` is evaluated as false
 
-## Context
+## Variables
 
 ```yaml
 model: openai:gpt-4
