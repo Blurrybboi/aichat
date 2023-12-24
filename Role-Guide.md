@@ -55,7 +55,7 @@ If we run `aichat -r emoji angry`, aichat aichat will generate messages as follo
 ]
 ```
 
-Prompt will be converted to a 'system' message, while user input will become a 'user' message.
+Prompt will be converted to a `system` message, while user input will become a `user` message.
 
 ## Role Args
 
