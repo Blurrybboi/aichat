@@ -8,9 +8,9 @@ Just download the `.tmTheme` file to the aichat configuration directory and name
 # goto config dir
 cd "$(dirname "$(aichat --info | grep config_file | awk '{print $2}')")"
 # override dark theme
-wget 'https://raw.githubusercontent.com/braver/Solarized/87e01090cf5fb821a234265b3138426ae84900e7/Solarized%20(dark).tmTheme' -O dark.tmTheme
+wget -O dark.tmTheme 'https://raw.githubusercontent.com/braver/Solarized/87e01090cf5fb821a234265b3138426ae84900e7/Solarized%20(dark).tmTheme'
 # override light theme
-wget 'https://raw.githubusercontent.com/braver/Solarized/87e01090cf5fb821a234265b3138426ae84900e7/Solarized%20(light).tmTheme' -O light.tmTheme
+wget -O light.tmTheme 'https://raw.githubusercontent.com/braver/Solarized/87e01090cf5fb821a234265b3138426ae84900e7/Solarized%20(light).tmTheme'
 ```
 
 ## Themes
