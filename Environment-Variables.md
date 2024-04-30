@@ -5,4 +5,4 @@ AIChat supports the following environment variables:
 - `AICHAT_ROLES_FILE`: Customize the location of the `roles.yaml` file.
 - `AICHAT_LIGHT_THEME`: Enable a light theme.
 - `{client}_API_KEY`: Provide API keys for specific clients, e.g. `OPENAI_API_KEY`, `GEMINI_API_KEY`.
-- `AICHAT_CLIENT_TYPE`: Combined with `{client}_API_KEY` to run aichat without needing a configuration file.
+- `AICHAT_PLATFORM`: Combined with `{client}_API_KEY` to run aichat without needing a configuration file.
