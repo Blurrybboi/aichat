@@ -17,7 +17,7 @@ There are two types of prompt: `embeded` and `system`.
 
 ### Embeded Prompt
 
-If prompt contains `__INPUT___`, it's embeded prompt
+If prompt contains `__INPUT__`, it's embeded prompt
 
 Here is an example of the embeded prompt:
 
@@ -37,7 +37,7 @@ The `__INPUT__` in the prompt will be replaced by user input to form one user me
 
 ### System Prompt
 
-If prmopt don't contain `__INPUT___`, it's  system prompt.
+If prmopt don't contain `__INPUT__`, it's  system prompt.
 
 Here is an example of the system prompt:
 
