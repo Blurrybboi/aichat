@@ -2,7 +2,7 @@ AIChat supports customizing the theme through the `.tmTheme` file.
 
 ## Setup the theme
 
-Just download the `.tmTheme` file to the aichat configuration directory and name it `dark.theme`/`light.theme`. The theme will be automatically loaded when aichat starts.
+Just download the `.tmTheme` file to the aichat configuration directory and name it `dark.tmTheme`/`light.tmTheme`. The theme will be automatically loaded when aichat starts.
 
 ```sh
 # goto config dir
