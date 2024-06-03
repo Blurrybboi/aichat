@@ -21,7 +21,7 @@ Here's a basic example:
 
 There are three types of prompts in AIChat:
 
-**1. Embedded Prompt:**
+### Embedded Prompt:
 
 - Contains `__INPUT__` placeholder, which gets replaced with your input.
 - Ideal for concise, input-driven replies.
@@ -38,7 +38,7 @@ Running `aichat -r emoji angry` would generate messages:
 ]
 ```
 
-**2. System Prompt:**
+### System Prompt
 
 - Does not include `__INPUT__`.
 - Sets a general context for the LLM's behavior.
@@ -57,7 +57,7 @@ Running `aichat -r emoji angry` would generate messages:
 ]
 ```
 
-**3. Structured Prompt:**
+### Structured Prompt
 
 - An extension of the system prompt, offering more precise instructions.
 - Uses `### INPUT:` and `### OUTPUT:` to denote user and assistant messages.
