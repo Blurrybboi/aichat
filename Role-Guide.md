@@ -57,7 +57,7 @@ Running `aichat -r emoji angry` would generate messages:
 ]
 ```
 
-### Structured Prompt
+### Few-shot Prompt
 
 - An extension of the system prompt, offering more precise instructions.
 - Uses `### INPUT:` and `### OUTPUT:` to denote user and assistant messages.
