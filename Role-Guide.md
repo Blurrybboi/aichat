@@ -2,10 +2,12 @@
 
 Roles in AIChat define how the LLM will respond to your input. Each role consists of four fields:
 
-- **`name`:** A unique identifier for the role (e.g., "shell", "translator").
+- **`name`:** A unique identifier for the role (e.g., `shell`, `translator`).
 - **`prompt`:** Instructions and context provided to the LLM.
-- **`temperature`:**  (Optional) Controls the creativity and randomness of the LLM's response.
-- **`top_p`:** (Optional) Alternative way to control LLM's output diversity, affecting the probability distribution of tokens.
+- **`model`:** The preferred LLM.
+- **`temperature`:**  Controls the creativity and randomness of the LLM's response.
+- **`top_p`:** Alternative way to control LLM's output diversity, affecting the probability distribution of tokens.
+- **`selected_functions`:** Regex for seletecting functions. (e.g. `.*` `execute_command|execute_js_code`)
 
 Here's a basic example:
 
