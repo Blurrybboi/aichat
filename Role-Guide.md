@@ -7,7 +7,7 @@ Roles in AIChat define how the LLM will respond to your input. Each role consist
 - **`model`:** The preferred LLM.
 - **`temperature`:**  Controls the creativity and randomness of the LLM's response.
 - **`top_p`:** Alternative way to control LLM's output diversity, affecting the probability distribution of tokens.
-- **`selected_functions`:** Regex for seletecting functions. (e.g. `.*` `execute_command|execute_js_code`)
+- **`functions_filter`:** Regex for seletecting functions. (e.g. `.*` `execute_command|execute_js_code`)
 
 Here's a basic example:
 
