@@ -2,9 +2,9 @@
 
 Roles in AIChat define how the LLM will respond to your input. Each role consists of four fields:
 
-- **`name`:** A unique identifier for the role (e.g., `shell`, `translator`).
+- **`name`:** A unique identifier for the role (e.g., `translator`, `grammar-genie`).
 - **`prompt`:** Instructions and context provided to the LLM.
-- **`model`:** The preferred LLM.
+- **`model`:** The preferred LLM (e.g. `openai:gpt-4o`).
 - **`temperature`:**  Controls the creativity and randomness of the LLM's response.
 - **`top_p`:** Alternative way to control LLM's output diversity, affecting the probability distribution of tokens.
 - **`functions_filter`:** Regex for seletecting functions. (e.g. `.*` `execute_command|execute_js_code`)
@@ -12,11 +12,10 @@ Roles in AIChat define how the LLM will respond to your input. Each role consist
 Here's a basic example:
 
 ```yaml
-- name: shell
+# <aichat-config-dir>/roles.yaml
+- name: grammar-genie
   prompt: >
-    I want you to act as a linux shell expert.
-    I want you to answer only with code.
-    Do not write explanations.
+    Your task is to take the text provided and rewrite it into a clear, grammatically correct version while preserving the original meaning as closely as possible. Correct any spelling mistakes, punctuation errors, verb tense issues, word choice problems, and other grammatical mistakes.
 ```
 
 ## Types of Prompts
@@ -40,7 +39,7 @@ Running `aichat -r emoji angry` would generate messages:
 ]
 ```
 
-### System Prompt
+### System Prompt:
 
 - Does not include `__INPUT__`.
 - Sets a general context for the LLM's behavior.
@@ -59,7 +58,7 @@ Running `aichat -r emoji angry` would generate messages:
 ]
 ```
 
-### Few-shot Prompt
+### Few-shot Prompt:
 
 - An extension of the system prompt, offering more precise instructions.
 - Uses `### INPUT:` and `### OUTPUT:` to denote user and assistant messages.
@@ -90,7 +89,7 @@ Running `aichat -r code echo server in node.js` would generate messages:
 
 ## Role Arguments
 
-ole arguments can be employed to supply extra parameters to the prompt.
+Role arguments can be employed to supply extra parameters to the prompt.
 
 ```yaml
 - name: convert:json:yaml
@@ -114,3 +113,14 @@ convert yaml below to toml
 ```
 
 Different role args will generate different prompts.
+
+## Built-in Roles
+
+AIChat includes these built-in roles:
+
+- `%shell%`: Generates shell commands (used by `aichat -e`)
+- `%explain-shell%`: Explains shell commands (used by `aichat -e` > `explain`)
+- `%code%`: Generates code (used by `aichat -c`)
+- `%functions%`: Attach function declarations of all tools
+
+Built-in role names are always enclosed in `%...%`. You can override them in `roles.yaml`.
