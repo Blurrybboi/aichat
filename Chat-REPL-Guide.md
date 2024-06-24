@@ -136,7 +136,7 @@ Seamlessly integrates document interactions into your chat experience.
 
 ### `.agent` - chat with an AI agent
 
-![repl-agent](https://github.com/sigoden/aichat/assets/4012553/d544f00d-5303-4393-a9fb-5e3f20f88412)
+![repl-agent](https://github.com/sigoden/aichat/assets/4012553/7308a423-2ee5-4847-be1b-a53538bc98dc)
 
 #### `.starter <tab>` -  Use the agent's conversation starter
 
