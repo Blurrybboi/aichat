@@ -173,7 +173,7 @@ Usage: .file <file>... [-- text...]
 .set max_output_tokens 4096
 .set temperature 1.2
 .set top_p 0.8
-.set rag_rerank_model <tab>
+.set rag_reranker_model <tab>
 .set rag_top_k 4
 .set function_calling true
 .set compress_threshold 1000
