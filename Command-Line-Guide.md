@@ -70,6 +70,22 @@ Simply input what you want to do in natural language, and aichat will prompt and
 
 **AIChat is aware of OS and shell you are using, it will provide shell command for specific system you have.**
 
+## Shell Integration
+
+This is a **very handy feature**, which allows you to use `aichat` intelligent completions directly in your terminal.
+
+![aichat-integration](https://github.com/sigoden/aichat/assets/4012553/873ebf23-226c-412e-a34f-c5aaa7017524)
+
+AIChat offers shell integration scripts for for bash, zsh, PowerShell, fish, and nushell. You can find them on GitHub at [https://github.com/sigoden/aichat/tree/main/scripts/shell-integration](https://github.com/sigoden/aichat/tree/main/scripts/shell-integration).
+
+## Shell Autocompletion
+
+The shell autocompletion suggests commands, options, and filenames as you type, enabling you to type less, work faster, and avoid typos.
+
+![aichat-autocompletions](https://github.com/sigoden/aichat/assets/4012553/29dd7497-441f-4b64-b36e-2bcbc5e66202)
+
+AIChat offers shell completion scripts for bash, zsh, PowerShell, fish, and nushell. You can find them on GitHub at [https://github.com/sigoden/aichat/tree/main/scripts/completions](https://github.com/sigoden/aichat/tree/main/scripts/completions).
+
 ## Generate Code
 
 By using the `--code` or `-c` parameter, you can specifically request pure code output.
@@ -77,25 +93,6 @@ By using the `--code` or `-c` parameter, you can specifically request pure code 
 ![aichat-code](https://github.com/sigoden/aichat/assets/4012553/2bbf7c8a-3822-4222-9498-693dcd683cf4)
 
 **The `-c/--code` with pipe ensures the extraction of code from Markdown.**
-
-## Run Server
-
-AIChat comes with a built-in lightweight http server.
-
-```
-$ aichat --serve
-Chat Completions API: http://127.0.0.1:8000/v1/chat/completions
-Embeddings API:       http://127.0.0.1:8000/v1/embeddings
-LLM Playground:       http://127.0.0.1:8000/playground
-LLM Arena:            http://127.0.0.1:8000/arena?num=2
-```
-
-Change the listening address:
-```
-$ aichat --serve 0.0.0.0
-$ aichat --serve 8080
-$ aichat --serve 0.0.0.0:8080
-```
 
 ## Use Files
 
@@ -137,19 +134,22 @@ This is file2
 
 ~~~~~~
 ```
-## Shell Autocompletion
 
-The shell autocompletion suggests commands, options, and filenames as you type, enabling you to type less, work faster, and avoid typos.
+## Run Server
 
-![aichat-autocompletions](https://github.com/sigoden/aichat/assets/4012553/29dd7497-441f-4b64-b36e-2bcbc5e66202)
+AIChat comes with a built-in lightweight http server.
 
-AIChat offers shell completion scripts for bash, zsh, PowerShell, fish, and nushell. You can find them on GitHub at [https://github.com/sigoden/aichat/tree/main/scripts/completions](https://github.com/sigoden/aichat/tree/main/scripts/completions).
+```
+$ aichat --serve
+Chat Completions API: http://127.0.0.1:8000/v1/chat/completions
+Embeddings API:       http://127.0.0.1:8000/v1/embeddings
+LLM Playground:       http://127.0.0.1:8000/playground
+LLM Arena:            http://127.0.0.1:8000/arena?num=2
+```
 
-## Shell Integration
-
-This is a **very handy feature**, which allows you to use `aichat` intelligent completions directly in your terminal.
-
-![aichat-integration](https://github.com/sigoden/aichat/assets/4012553/873ebf23-226c-412e-a34f-c5aaa7017524)
-
-AIChat offers shell integration scripts for for bash, zsh, PowerShell, fish, and nushell. You can find them on GitHub at [https://github.com/sigoden/aichat/tree/main/scripts/shell-integration](https://github.com/sigoden/aichat/tree/main/scripts/shell-integration).
-
+Change the listening address:
+```
+$ aichat --serve 0.0.0.0
+$ aichat --serve 8080
+$ aichat --serve 0.0.0.0:8080
+```
