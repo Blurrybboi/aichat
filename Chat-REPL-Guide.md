@@ -1,23 +1,24 @@
 The core of AIChat is Chat-REPL.
 
-## Common REPL Features
+## REPL Features
 
-- **Tab Autocompletion:** All REPL commands have tab completions.
-    > Type `.<tab>` to complete REPL commands.
-    > Type `.set <tab>` to complete config keys.
-    > Type `.set key <tab>` to complete config values.
-    > ...
+- **Tab Autocompletion:** All REPL commands have completions.
+    >  `.<tab>` to complete REPL commands. <br>
+    >  `.model` to complete chat models. <br>
+    >  `.set <tab>` to complete config keys. <br>
+    >  `.set key <tab>` to complete config values. <br>
+    > ... <br>
 - **Multi-line Support:** Input multi-line text in the following ways:
-    > Press `ctrl+o` to edit buffer with an external editor (recommend).
-    > Paste multi-line text (requires terminal support for bracketed paste).
-    > Type `:::` to start multi-line editing, type `:::` to finish it.
-    > Use hotkey `{ctrl,shift,alt}+enter` to insert a newline directly.
-- **History Search:** Press `ctrl+r` to search the history.
+    > Press `ctrl+o` to edit buffer with an external editor (recommend). <br>
+    > Paste multi-line text (requires terminal support for bracketed paste). <br>
+    > Type `:::` to start multi-line editing, type `:::` to finish it. <br>
+    > Use hotkey `{ctrl,shift,alt}+enter` to insert a newline directly. <br>
+- **History Search:** Press `ctrl+r` to search the history. Use `↑↓` to to navigate through the history.
     > The history only includes text entered after the REPL starts.
-- **Configurable  Keybinding:** Emacs-style bindings and basic VI-style
-    > The default keybindings are Emacs.
-    > Switch to VI keybindings by adding `keybindings: vi` to the `config.yaml` file.
-- **[Custom REPL Prompt](https://github.com/sigoden/aichat/wiki/Custom-REPL-Prompt):**  Display information about the current context in the prompt. 
+- **Configurable Keybinding:** Emacs-style bindings and basic VI-style
+    > The default keybindings are Emacs. <br>
+    > Switch to VI keybindings by adding `keybindings: vi` to the `config.yaml` file. <br>
+- **[Custom REPL Prompt](https://github.com/sigoden/aichat/wiki/Custom-REPL-Prompt):** Display information about the current context in the prompt. 
 
 ## REPL Commands
 
@@ -138,7 +139,7 @@ Seamlessly integrates document interactions into your chat experience.
 
 ![repl-agent](https://github.com/sigoden/aichat/assets/4012553/7308a423-2ee5-4847-be1b-a53538bc98dc)
 
-#### `.starter <tab>` -  Use the agent's conversation starter
+#### `.starter` - use the agent's conversation starter
 
 ![repl-starter](https://github.com/sigoden/aichat/assets/4012553/6826f5c3-0ebe-4a78-80b9-00ebf9aaafd8)
 
