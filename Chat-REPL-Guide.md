@@ -38,9 +38,10 @@ The core of AIChat is Chat-REPL.
 .edit session            Edit the current session with an editor
 .clear messages          Erase messages in the current session
 .exit session            End the session
-.rag                     Init or use a rag
-.info rag                View rag info
-.exit rag                Leave the rag
+.rag                     Init or use the RAG
+.info rag                View RAG info
+.rebuild rag             Rebuild the RAG to sync document changes
+.exit rag                Leave the RAG
 .agent                   Use a agent
 .info agent              View agent info
 .starter                 Use the conversation starter
@@ -132,6 +133,8 @@ With sessions, AIChat conducts context-aware conversations.
 ### `.rag` - chat with knowledge
 
 Seamlessly integrates document interactions into your chat experience.
+
+#### `.rebuild rag` - Rebuild the RAG to sync document changes
 
 ![repl-rag](https://github.com/sigoden/aichat/assets/4012553/6f3e5908-9c95-4d7d-aa9c-7e973ecf9354)
 
