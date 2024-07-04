@@ -1,3 +1,9 @@
+RAG can improve the efficacy of large language model (LLM) applications by leveraging custom data
+
+AICHAT has a built-in vector database and full-text search engine, eliminating reliance on third-party services and  providing ready-to-use RAG functionality.
+
+![aichat-rag](https://github.com/sigoden/aichat/assets/4012553/6f3e5908-9c95-4d7d-aa9c-7e973ecf9354)
+
 ## Init RAG
 
 **From Files**
