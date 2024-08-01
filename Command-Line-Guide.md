@@ -19,9 +19,6 @@ Options:
   -c, --code                 Output code only
   -f, --file <FILE>          Include files with the message
   -S, --no-stream            Turn off stream mode
-  -w, --wrap <WRAP>          Control text wrapping (no, auto, <max-width>)
-  -H, --no-highlight         Turn off syntax highlighting
-      --light-theme          Use light theme
       --dry-run              Display the message without sending it
       --info                 Display information
       --list-models          List all available chat models
@@ -62,7 +59,7 @@ data=$(aichat -S "$data")                       # Invoke in script
 aichat -f a.png -f b.png diff images            # Use files
 ```
 
-## Execute Command
+## Shell Assistant
 
 Simply input what you want to do in natural language, and aichat will prompt and run the command that achieves your intent.
 
@@ -96,43 +93,19 @@ By using the `--code` or `-c` parameter, you can specifically request pure code 
 
 ## Use Files
 
-The `-f/--file` can be used to send files to LLMs.
+The `-f/--file` can be used to send files to LLMs. 
 
-We can send image files. This makes AIChat similar to an OCR tool.
 ```sh
-aichat -f screenshot.png Output the text in the screenshot image
-```
-
-Typing long texts into the CLI is inconvenient, We can save the text to a file and send the file.
-```sh
+# Use local file
 aichat -f data.txt
-```
-
-We can input text as well as include file.
-
-```sh
-aichat -f data.txt summarize
-```
-
-It is also possible to include multiple text documents at the same time.
-
-You can use --dry-run to see how the AI chatbot processes multiple files.
-
-```sh
-$ echo "This is file1" > file1.txt
-$ echo "This is file2" > file2.txt
-$ aichat --dry-run -f file1.txt -f file2.txt Use multiple files
-Use multiple files
-`file1.txt`:
-~~~~~~
-This is file1
-
-~~~~~~
-`file2.txt`:
-~~~~~~
-This is file2
-
-~~~~~~
+# Use image file
+aichat -f image.png Output text
+# Use multiple files
+aichat -f dir/file1 -f dir/file2 summarize
+# Use local directory
+aichat -f dir/ summarize
+# Use websiste
+aichat -f https://github.com/sigoden/aichat What is the features?
 ```
 
 ## Run Server

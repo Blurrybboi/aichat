@@ -3,21 +3,17 @@ The core of AIChat is Chat-REPL.
 ## REPL Features
 
 - **Tab Autocompletion:** All REPL commands have completions.
-    >  `.<tab>` to complete REPL commands. <br>
-    >  `.model` to complete chat models. <br>
-    >  `.set <tab>` to complete config keys. <br>
-    >  `.set key <tab>` to complete config values. <br>
-    > ... <br>
+    * `.<tab>` to complete REPL commands. 
+    * `.model< tab>` to complete chat models.
+    * `.set <tab>` to complete config keys.
+    * `.set key <tab>` to complete config values.
 - **Multi-line Support:** Input multi-line text in the following ways:
-    > Press `ctrl+o` to edit buffer with an external editor (recommend). <br>
-    > Paste multi-line text (requires terminal support for bracketed paste). <br>
-    > Type `:::` to start multi-line editing, type `:::` to finish it. <br>
-    > Use hotkey `{ctrl,shift,alt}+enter` to insert a newline directly. <br>
+    * Press `ctrl+o` to edit buffer with an external editor (recommend).
+    * Paste multi-line text (requires terminal support for bracketed paste).
+    * Type `:::` to start multi-line editing, type `:::` to finish it.
+    * Use hotkey `{ctrl,shift,alt}+enter` to insert a newline directly.
 - **History Search:** Press `ctrl+r` to search the history. Use `↑↓` to to navigate through the history.
-    > The history only includes text entered after the REPL starts.
-- **Configurable Keybinding:** Emacs-style bindings and basic VI-style
-    > The default keybindings are Emacs. <br>
-    > Switch to VI keybindings by adding `keybindings: vi` to the `config.yaml` file. <br>
+- **Configurable Keybinding:** Emacs-style bindings and basic VI-style.
 - **[Custom REPL Prompt](https://github.com/sigoden/aichat/wiki/Custom-REPL-Prompt):** Display information about the current context in the prompt. 
 
 ## REPL Commands
@@ -45,6 +41,7 @@ The core of AIChat is Chat-REPL.
 .agent                   Use a agent
 .info agent              View agent info
 .starter                 Use the conversation starter
+.variable                Set agent variable
 .exit agent              Leave the agent
 .file                    Include files with the message
 .continue                Continue the response
@@ -126,9 +123,9 @@ With sessions, AIChat conducts context-aware conversations.
 
 ![aichat-session](https://github.com/sigoden/aichat/assets/4012553/1444c5c9-ea67-4ad2-80df-a76954e8cce0)
 
-#### `.save session` - Save the current session to file
+#### `.save session` - save the current session to file
 
-#### `.edit session` - Edit the current session with an editor
+#### `.edit session` - edit the current session with an editor
 
 ### `.rag` - chat with knowledge
 
@@ -140,12 +137,13 @@ Seamlessly integrates document interactions into your chat experience.
 
 ### `.agent` - chat with an AI agent
 
-![repl-agent](https://github.com/sigoden/aichat/assets/4012553/7308a423-2ee5-4847-be1b-a53538bc98dc)
+![repl-agent](https://github.com/user-attachments/assets/0b7e687d-e642-4e8a-b1c1-d2d9b2da2b6b)
 
 #### `.starter` - use the agent's conversation starter
 
-![repl-starter](https://github.com/sigoden/aichat/assets/4012553/6826f5c3-0ebe-4a78-80b9-00ebf9aaafd8)
+#### `.variable <name> <value>` - Rebuild the RAG to sync document changes
 
+#### `.variable` - set agent variable
 
 ### `.continue` - continue the response
 
@@ -168,6 +166,7 @@ Usage: .file <file>... [-- text...]
 .file config.yaml -- convert to toml
 .file screentshot.png -- design a web app based on the image
 .file https://ibb.co/a.png https://ibb.co/b.png -- what is the difference?
+.file https://github.com/sigoden/aichat/blob/main/README.md -- what is the features of AIchat?
 ```
 
 ### `.set` - adjust settings (non-persistent)
@@ -177,14 +176,16 @@ Usage: .file <file>... [-- text...]
 .set max_output_tokens 4096
 .set temperature 1.2
 .set top_p 0.8
-.set rag_reranker_model <tab>
-.set rag_top_k 4
-.set function_calling true
-.set compress_threshold 1000
+.set dry_run true
+.set stream false
 .set save true
 .set save_session true
+.set compress_threshold 1000
+.set function_calling true
+.set use_tools <tab>
+.set rag_reranker_model <tab>
+.set rag_top_k 4
 .set highlight true
-.set dry_run true
 ```
 
 ### `.info` - view information
@@ -203,4 +204,3 @@ Usage: .file <file>... [-- text...]
 - `.exit session`: Exit the session.
 - `.exit rag`: Exit the RAG.
 - `.exit agent`: Exit the agent.
-

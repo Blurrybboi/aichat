@@ -7,6 +7,7 @@ Roles in AIChat define how the LLM will respond to your input. Each role consist
 - **`model`:** The preferred LLM (e.g. `openai:gpt-4o`).
 - **`temperature`:**  Controls the creativity and randomness of the LLM's response.
 - **`top_p`:** Alternative way to control LLM's output diversity, affecting the probability distribution of tokens.
+- **`use_tools`:** Tools attached to this role.
 
 Here's a basic example:
 
@@ -120,6 +121,6 @@ AIChat includes these built-in roles:
 - `%shell%`: Generates shell commands (used by `aichat -e`)
 - `%explain-shell%`: Explains shell commands (used by `aichat -e` > `explain`)
 - `%code%`: Generates code (used by `aichat -c`)
-- `%functions%`: Attach function declarations of all tools
+- `%functions%`: Attach function declarations of all tools (`use_tools: all`).
 
 Built-in role names are always enclosed in `%...%`. You can override them in `roles.yaml`.

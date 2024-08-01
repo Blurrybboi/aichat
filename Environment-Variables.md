@@ -1,19 +1,74 @@
-AIChat supports the following environment variables:
+## Env file
 
-- `HTTPS_RPOXY`/`ALL_PROXY`: Specify a globally proxy server.
-- `NO_COLOR`: Disable the use of color.
-- `EDITOR`: Specify the default buffer editor.
+AIChat supports env file (`<aichat-config-dir>/.env`) for managing environment variables.
 
-<br>
+You can put all your secret environment variables in the `.env` file.
+
+## Config-Related Envs
+
+All config items have their related env variables to override its values.
+Check [config.example.yaml](https://github.com/sigoden/aichat/blob/main/config.example.yaml) for all config items.
+
+```yaml
+# ---- llm ----
+model: openai:gpt-4o              # env: AICHAT_MODEL
+temperature: null                 # env: AICHAT_TEMPERATURE
+top_p: null                       # env: AICHAT_TOP_P
+
+stream: true                      # env: AICHAT_STREAM
+save: true                        # env: AICHAT_SAVE
+keybindings: emacs                # env: AICHAT_KEYBINDINGS
+editor: null                      # env: AICHAT_EDITOR
+wrap: no                          # env: AICHAT_WRAP
+wrap_code: false                  # env: AICHAT_WRAP_CODE
+
+prelude: null                     # env: AICHAT_PRELUDE
+repl_prelude: null                # env: AICHAT_REPL_PRELUDE
+agent_prelude: null               # env: AICHAT_PRELUDE
+
+save_session: null                # env: AICHAT_SAVE_SESSION
+compress_threshold: 4000          # env: AICHAT_COMPRESS_THRESHOLD
+summarize_prompt: ''              # env: AICHAT_SUMMARIZE_PROMPT
+summary_prompt: ''                # env: AICHAT_SUMMARY_PROMPT
+function_calling: true            # env: AICHAT_FUNCTION_CALLING
+mapping_tools: '{}'               # env: AICHAT_MAPPING_TOOLS
+use_tools: null                   # env: AICHAT_USE_TOOLS
+
+rag_embedding_model: null         # env: AICHAT_rag_embedding_model
+rag_reranker_model: null          # env: AICHAT_rag_reranker_model
+rag_top_k: 4                      # env: AICHAT_rag_top_k
+rag_chunk_size: null              # env: AICHAT_rag_chunk_size
+rag_chunk_overlap: null           # env: AICHAT_rag_chunk_overlap
+rag_min_score_vector_search: 0    # env: AICHAT_rag_min_score_vector_search
+rag_min_score_keyword_search: 0   # env: AICHAT_rag_min_score_keyword_search
+rag_min_score_rerank: 0           # env: AICHAT_rag_min_score_rerank
+rag_template: ''                  # env: AICHAT_rag_template
+document_loaders: '{}'            # env: AICHAT_document_loaders
+
+highlight: true                   # env: AICHAT_HIGHLIGHT
+light_theme: false                # env: AICHAT_LIGHT_THEME
+left_prompt: ''                   # env: AICHAT_LEFT_PROMPT
+right_prompt: ''                  # env: AICHAT_RIGHT_PROMPT
+```
+
+## Client-Related Envs
 
 - `{client}_API_KEY`: Provide API keys for specific clients, e.g. `OPENAI_API_KEY`, `GEMINI_API_KEY`.
-- `AICHAT_PLATFORM`: Combined with `{client}_API_KEY` to run aichat without needing a configuration file.
-- `AICHAT_LIGHT_THEME`: Enable a light theme.
-- `AICHAT_NO_DANGEROUSLY_FUNCTIONS`: Set `dangerously_functions_filter: null` 
+- `AICHAT_PLATFORM`: Combined with `{client}_API_KEY` to run aichat without a configuration file.
+- `AICHAT_PATCH_{client}_CHAT_COMPLETIONS`: Patch chat completions api request url, headers and body.
+  ```
+  AICHAT_PATCH_OPENAI_CHAT_COMPLETIONS='{"gpt-4o":{"body":{"seed":666,"temperature":0}}}'
+  ```
 
-<br>
+## Agent-Related Envs
 
-- `AICHAT_CONFIG_DIR`: Customize the location of the config dir. Defaults to `<user_config_dir>/aichat`.
+- `{agent}_CONFIG_DIR`: Customize the location of the agent's config dir. e.g. `CODER_CONFIG_DIR`.
+- `{agent}_FUNCTIONS_DIR`: Customize the location of the agent's config dir. e.g. `CODER_FUNCTIONS_DIR`.
+
+## Files/Dirs Envs
+
+- `AICHAT_CONFIG_DIR`: Customize the location of the config dir. Defaults to `<user-config-dir>/aichat`.
+- `AICHAT_ENV_FILE`: Customize the location of the `.env` file.
 - `AICHAT_CONFIG_FILE`: Customize the location of the `config.yaml` file.
 - `AICHAT_ROLES_FILE`: Customize the location of the `roles.yaml` file.
 - `AICHAT_MESSAGES_FILE`: Customize the location of the `messages.md` file.
@@ -22,3 +77,14 @@ AIChat supports the following environment variables:
 - `AICHAT_FUNCTIONS_DIR`: Customize the location of the `functions` dir.
 - `AICHAT_AGENTS_FUNCTIONS_DIR`: Customize the location of the `functions/agents` dir.
 - `AICHAT_AGENTS_CONFIG_DIR`: Customize the location of the `agents` dir.
+
+## Logging Envs
+
+- `AICHAT_LOG_LEVEL=debug`: Enable debug logging.
+- `AICHAT_LOG_FILE`: Custom the location of the log file, defaults to `<aichat-config-dir>/aichat.log`
+
+## Generic Envs
+
+- `HTTPS_RPOXY`/`ALL_PROXY`: Specify a globally proxy server.
+- `NO_COLOR`: Disable the use of color.
+- `EDITOR`: Specify the default editor.

@@ -70,16 +70,12 @@ document_loaders:
   # You can add custom loaders using the following syntax:
   #   <file-extension>: <command-to-load-the-file>
   # Note: Use `$1` for input file and `$2` for output file. If `$2` is omitted, use stdout as output.
-  pdf: 'pdftotext $1 -'                         # Load .pdf file, see https://poppler.freedesktop.org
-  docx: 'pandoc --to plain $1'                  # Load .docx file
-  # xlsx: 'ssconvert $1 $2'                     # Load .xlsx file
-  # html: 'pandoc --to plain $1'                # Load .html file
-  recursive_url: 'rag-crawler $1 $2'            # Load websites, see https://github.com/sigoden/rag-crawler
+  pdf: 'pdftotext $1 -'                         # Load .pdf file, see https://poppler.freedesktop.org to set up pdftotext
+  docx: 'pandoc --to plain $1'                  # Load .docx file, see https://pandoc.org to set up pandoc
+  recursive_url: 'rag-crawler $1 $2'            # Load websites, see https://github.com/sigoden/rag-crawler to set up rag-crawler
 ```
 
 The `document_loaders` configuration item is a map where the key represents the file extension and the value specifies the corresponding loader command.
-
-AIChat provides default loaders for `pdf`, `docx` and `recursive_url`.
 
 To ensure the loaders function correctly, please verify that the required tools are installed.
 

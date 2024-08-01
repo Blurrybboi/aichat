@@ -50,9 +50,9 @@ max_input_tokens: 4096
 temperature: 1.0
 top_p: 0.9
 dry_run: true
+stream: false
 save: true
 wrap: 120
-auto_copy: true
 
 role: coder
 
