@@ -131,7 +131,7 @@ With sessions, AIChat conducts context-aware conversations.
 
 Seamlessly integrates document interactions into your chat experience.
 
-![repl-rag](https://github.com/sigoden/aichat/assets/4012553/6f3e5908-9c95-4d7d-aa9c-7e973ecf9354)
+![repl-rag](https://github.com/user-attachments/assets/81b81409-460a-4aec-9e08-a3c3da5492d0)
 
 #### `.rebuild rag` - Rebuild the RAG to sync document changes
 

@@ -10,6 +10,7 @@ $ aichat
 ✨ Saved config file to '/home/alice/.config/aichat.yaml'
 
 ```
+
 The location of config file is `<user-config-dir>/aichat/config.yaml`:
 
 The config file path for each operating system are as follows:
