@@ -1,10 +1,8 @@
 Welcome to the AIChat wiki!
 
-An effective way to use this wiki is: create RAG from `https://github.com/sigoden/aichat/wiki/**` then query it.
+An effective way to use this wiki is to create RAG from `https://github.com/sigoden/aichat/wiki/**` then query it.
 
-https://github.com/sigoden/aichat/assets/4012553/d4a42406-bf86-4894-a041-215678ab0246
-
-## Wikis
+https://github.com/user-attachments/assets/5cd9574b-e6f2-4f15-8e53-1a4a77d76ea9
 
 - [Configuration Guide](https://github.com/sigoden/aichat/wiki/Configuration-Guide)
 - [Command-Line Guide](https://github.com/sigoden/aichat/wiki/Command-Line-Guide)
