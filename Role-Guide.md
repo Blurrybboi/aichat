@@ -1,9 +1,9 @@
 ## Role Definition
 
-Roles in AIChat define how the LLM will respond to your input. Each role consists of four fields:
+Roles are instrumental in customizing Large Language Model (LLM) behaviors, thereby enhancing user interactions and boosting overall productivity.
 
-- **`name`:** A unique identifier for the role (e.g., `translator`, `grammar-genie`).
-- **`prompt`:** Instructions and context provided to the LLM.
+A role primarily consists of a name and a prompt, alongside several optional configurations:
+
 - **`model`:** The preferred LLM (e.g. `openai:gpt-4o`).
 - **`temperature`:**  Controls the creativity and randomness of the LLM's response.
 - **`top_p`:** Alternative way to control LLM's output diversity, affecting the probability distribution of tokens.
