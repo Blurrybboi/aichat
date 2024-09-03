@@ -25,14 +25,16 @@ The core of AIChat is Chat-REPL.
 .info                    View system info
 .model                   Change the current LLM
 .prompt                  Create a temporary role using a prompt
-.role                    Switch to a specific role
+.role                    Create or switch to a specific role
 .info role               View role info
+.edit role               Edit the current role
+.save role               Save the current role to file
 .exit role               Leave the role
 .session                 Begin a session
 .info session            View session info
-.save session            Save the current session to file
-.edit session            Edit the current session with an editor
+.edit session            Edit the current session 
 .clear messages          Erase messages in the current session
+.save session            Save the current session to file
 .exit session            End the session
 .rag                     Init or use the RAG
 .info rag                View RAG info
@@ -104,9 +106,12 @@ Use the role without switching to it (Can be used in session or agent context):
 >
 ```
 
+#### `.save role` - save the current role to file
+
+#### `.edit role` - Edit the current role
+
 ### `.prompt` - use a temporary role
 
-There are situations where setting a system message is necessary, but modifying the `roles.yaml` file is not ideal.
 Use the `.prompt` feature to create a temporary role specifically for this purpose.
 
 ```
@@ -125,7 +130,7 @@ With sessions, AIChat conducts context-aware conversations.
 
 #### `.save session` - save the current session to file
 
-#### `.edit session` - edit the current session with an editor
+#### `.edit session` - edit the current session
 
 ### `.rag` - chat with knowledge
 

@@ -161,7 +161,7 @@ Take [LocalAI](https://localai.io/) for example.
 ```yaml
 clients:
   - type: openai-compatible
-    name: localai
+    name: local
     api_base: http://localhost:8080/v1
     # api_key: PROTECTED
     models:
@@ -192,21 +192,6 @@ clients:
 ### Patch API request
 
 AIChat supports patching request url, headers and body.  
-
-#### Patch `claude:claude-3-5-sonnet-20240620` for using beta 8192 output tokens
-
-```yaml
-clients:
-  - type: claude
-    ...
-    patch:                                # Patch api request
-      chat_completions:                   # Api type, one of chat_completions, embeddings, and rerank
-        'claude-3-5-sonnet-20240620':     # The regex to match model names, e.g. '.*' 'gpt-4o' 'gpt-4o|gpt-4-.*'
-          headers:
-            anthropic-beta: max-tokens-3-5-sonnet-2024-07-15
-          body:
-            max_tokens: 8192
-```
 
 #### Patch `gemini` for using the most relaxed security settings
 

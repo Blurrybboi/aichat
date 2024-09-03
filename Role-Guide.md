@@ -9,13 +9,16 @@ Roles in AIChat define how the LLM will respond to your input. Each role consist
 - **`top_p`:** Alternative way to control LLM's output diversity, affecting the probability distribution of tokens.
 - **`use_tools`:** Tools attached to this role.
 
-Here's a basic example:
+Below is an example of the `grammar-genie` role located at `<aichat-config-dir>/roles/grammar-genie.md`:
 
-```yaml
-# <aichat-config-dir>/roles.yaml
-- name: grammar-genie
-  prompt: >
-    Your task is to take the text provided and rewrite it into a clear, grammatically correct version while preserving the original meaning as closely as possible. Correct any spelling mistakes, punctuation errors, verb tense issues, word choice problems, and other grammatical mistakes.
+```md
+---
+model: openai:gpt-4o
+temperature: 0
+top_p: 0
+
+---
+Your task is to take the text provided and rewrite it into a clear, grammatically correct version while preserving the original meaning as closely as possible. Correct any spelling mistakes, punctuation errors, verb tense issues, word choice problems, and other grammatical mistakes.
 ```
 
 ## Types of Prompts
@@ -91,9 +94,10 @@ Running `aichat -r code echo server in node.js` would generate messages:
 
 Role arguments can be employed to supply extra parameters to the prompt.
 
-```yaml
-- name: convert:json:yaml
-  prompt: convert __ARG1__ below to __ARG2__
+For example, you can create a role file named `convert:json:yaml.md` with the following content:
+
+```
+convert __ARG1__ below to __ARG2__
 ```
 
 `:json:yaml` represents `role args`. It contains two arguments:
@@ -112,8 +116,6 @@ If we run `aichat -r convert:yaml:toml`, the prompt will be
 convert yaml below to toml
 ```
 
-Different role args will generate different prompts.
-
 ## Built-in Roles
 
 AIChat includes these built-in roles:
@@ -123,4 +125,4 @@ AIChat includes these built-in roles:
 - `%code%`: Generates code (used by `aichat -c`)
 - `%functions%`: Attach function declarations of all tools (`use_tools: all`).
 
-Built-in role names are always enclosed in `%...%`. You can override them in `roles.yaml`.
+Built-in role names are always enclosed in `%...%`.  You can override them by creating a role with the same name.

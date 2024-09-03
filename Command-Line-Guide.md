@@ -34,15 +34,17 @@ Options:
 
 ```sh
 aichat                                          # Enter REPL
-aichat hello                                    # Generate response
+aichat Tell a joke                              # Generate response
 
 aichat -e install nvim                          # Execute command
 aichat -c fibonacci in js                       # Generate code
 
 aichat --serve                                  # Run server
 
+aichat -m openai:gpt-4o                         # Select LLM
+
 aichat -r role1                                 # Use role 'role1'
-aichat -s                                       # Use session 'temp'
+aichat -s                                       # Begin a temp session
 aichat -s session1                              # Use session 'session1'
 aichat -a agent1                                # Use agent 'agent1'
 aichat -R rag1                                  # Use RAG 'rag1'
@@ -54,7 +56,7 @@ aichat -a agent1 --info                         # View agent info
 aichat -R rag1 --info                           # View RAG info
 
 cat data.toml | aichat -c to json > data.json   # Pipe Input/Output
-data=$(aichat -S "$data")                       # Invoke in script
+output=$(aichat -S $input)                      # Run in the script
 
 aichat -f a.png -f b.png diff images            # Use files
 ```
@@ -99,13 +101,13 @@ The `-f/--file` can be used to send files to LLMs.
 # Use local file
 aichat -f data.txt
 # Use image file
-aichat -f image.png Output text
-# Use multiple files
+aichat -f image.png Recognize text
+# Use multi files
 aichat -f dir/file1 -f dir/file2 summarize
-# Use local directory
+# Use local dir
 aichat -f dir/ summarize
 # Use websiste
-aichat -f https://github.com/sigoden/aichat What is the features?
+aichat -f https://example.com/readme Summarize    # Use website
 ```
 
 ## Run Server

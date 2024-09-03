@@ -1,8 +1,10 @@
-<details>
-<summary>
+## How to log or debug?
+
+Run `aichat` with the environment variable `AICHAT_LOG_LEVEL=debug`. Then check the log file at `<aichat-config-dir>/aichat.log`.
+
+The log contains runtime details and API request and response data, which can help you troubleshoot.
 
 ## Why need compress session?
-</summary>
 
 Sessions require context memory. However, The chat API is stateless. Therefore, each request needs to include the chat history.
 Chat history grows rapidly with the conversation, leading to a rapid increase in data transmitted to the API server.
@@ -14,20 +16,24 @@ This presents two problems:
 
 AICHat's strategy is to automatically compress the chat history when the number of tokens in the chat history exceeds a certain value (`compress_threshold`).
 
-</details>
+## Why LLMs don't call functions even though they support function calling?
 
-<details>
-<summary>
+There are several possible reasons for this, which need to be investigated one by one:
 
-## How to log or debug?
-</summary>
+**1. The LLM only supports non-stream function calling.**
 
-Run the following command:
-```
-AICHAT_LOG_LEVEL=debug aichat
-```
-Then check the log file `<aichat-config-dir>/aichat.log`.
+SOLUTION: Add `-S` CLI option or Run `.set stream false` REPL command, then try again
 
-Detailed request and response data can be found in the log files.
+**2. The `<aichat-config-dir>/functions/functions.json` file is missing or empty.**
 
-</details>
+SOLUTION: Enter the `llm-functions` directory and rebuild the tools/agents.
+
+**3: The input text is not related to the functions.**
+
+SOLUTION: Adjust the input text to be relevant to the functions.
+
+## What is the difference between agents and roles?
+
+Roles act as a sort of prompt library, and agents are similar to OpenAI's GPTs.
+
+An agent is a superset of a role; a role is equivalent to an agent with only the `instructions` field, while agents have additional features: variables, conversation starters, documents (RAG), and AI tools.

@@ -56,7 +56,7 @@ light_theme: false                # env: AICHAT_LIGHT_THEME
 - `AICHAT_CONFIG_DIR`: Customize the location of the config dir. Defaults to `<user-config-dir>/aichat`.
 - `AICHAT_ENV_FILE`: Customize the location of the `.env` file.
 - `AICHAT_CONFIG_FILE`: Customize the location of the `config.yaml` file.
-- `AICHAT_ROLES_FILE`: Customize the location of the `roles.yaml` file.
+- `AICHAT_ROLES_DIR`: Customize the location of the `roles` dir.
 - `AICHAT_MESSAGES_FILE`: Customize the location of the `messages.md` file.
 - `AICHAT_SESSIONS_DIR`: Customize the location of the `sessions` dir.
 - `AICHAT_RAGS_DIR`: Customize the location of the `rags` dir.
