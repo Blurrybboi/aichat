@@ -16,8 +16,8 @@ The location of config file is `<user-config-dir>/aichat/config.yaml`:
 The config file path for each operating system are as follows:
 
 - Windows: `C:\Users\Alice\AppData\Roaming\aichat\config.yaml`
-- macOS: `/Users/Alice/Library/Application Support/aichat.yaml`
-- Linux: `/home/alice/.config/aichat.yaml`
+- macOS: `/Users/Alice/Library/Application Support/aichat/config.yaml`
+- Linux: `/home/alice/.config/aichat/config.yaml`
 
 You can also run the following command to get the config file path: `aichat --info | grep config_file`
 

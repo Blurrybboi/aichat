@@ -20,9 +20,9 @@ AICHat's strategy is to automatically compress the chat history when the number 
 
 There are several possible reasons for this, which need to be investigated one by one:
 
-**1. The LLM only supports non-stream function calling.**
+**1. The LLM doesn't support stream function calling, only non-stream function calling.**
 
-SOLUTION: Add `-S` CLI option or Run `.set stream false` REPL command, then try again
+SOLUTION: Add `-S` CLI option or Run `.set stream false` REPL command to switch to non-stream mode.
 
 **2. The `<aichat-config-dir>/functions/functions.json` file is missing or empty.**
 
