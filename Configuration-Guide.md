@@ -154,7 +154,7 @@ right_prompt: '...'
 
 The [config.example.yaml](https://github.com/sigoden/aichat/blob/main/config.example.yaml) provides detailed configuration examples for various API providers. You can copy and paste these examples directly into your configuration. 
 
-### Custom chat models
+### Add chat models
 
 ```yaml
 clients:
@@ -167,7 +167,7 @@ clients:
         supports_function_calling: true
 ```
 
-### Custom embedding models
+### Add embedding models
 
 ```yaml
   - type: <client-type>
@@ -183,7 +183,7 @@ clients:
 
 > `type: embedding` indicates an embedding model.
 
-### Custom reranker models
+### Add reranker models
 
 ```yaml
   - type: <client-type>
@@ -196,7 +196,7 @@ clients:
 
 > `type: reranker` indicates a reranking model.
 
-#### Set socks/http(s) proxy
+### Set socks/http(s) proxy
 
 ```yaml
 clients:
@@ -266,18 +266,15 @@ clients:
   - type: openai-compatible
     name: local
     api_base: http://localhost:8080/v1
-    # api_key: PROTECTED
+    api_key: xxx                                      # Optional
     models:
-      - name: gpt-4
-        max_input_tokens: 8192
+      - name: llama3.1
+        max_input_tokens: 128000
         supports_function_calling: true
-      - name: gpt-4-vision-preview
-        max_input_tokens: 8192
-        supports_vision: true
-      - name: text-embedding-ada-002
+      - name: jina-embeddings-v2-base-en
         type: embedding
         default_chunk_size: 1500
-        max_batch_size: 50
-      - name: jina-reranker-v1-base-en
+        max_batch_size: 100
+      - name: jina-reranker-v2-base-multilingual
         type: reranker
 ```
