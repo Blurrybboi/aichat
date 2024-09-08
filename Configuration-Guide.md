@@ -154,44 +154,75 @@ right_prompt: '...'
 
 The [config.example.yaml](https://github.com/sigoden/aichat/blob/main/config.example.yaml) provides detailed configuration examples for various API providers. You can copy and paste these examples directly into your configuration. 
 
-### Add client for openai-compatible API provider
-
-Take [LocalAI](https://localai.io/) for example.
+### Custom chat models
 
 ```yaml
 clients:
-  - type: openai-compatible
-    name: local
-    api_base: http://localhost:8080/v1
-    # api_key: PROTECTED
+  - type: <client-type>
+    ...
     models:
-      - name: gpt-4
-        max_input_tokens: 8192
-        supports_function_calling: true
-      - name: gpt-4-vision-preview
-        max_input_tokens: 8192
+      - name: xxxx
+        max_input_tokens: 100000
         supports_vision: true
-      - name: text-embedding-ada-002
-        type: embedding
-        default_chunk_size: 1500
-        max_batch_size: 50
-      - name: jina-reranker-v1-base-en
-        type: reranker
+        supports_function_calling: true
 ```
 
-### Set client-specific proxy
+### Custom embedding models
+
+```yaml
+  - type: <client-type>
+    ...
+    models:
+      - name: xxxx
+        type: embedding
+        max_input_tokens: 200000
+        max_tokens_per_chunk: 2000
+        default_chunk_size: 1500                        
+        max_batch_size: 100
+```
+
+> `type: embedding` indicates an embedding model.
+
+### Custom reranker models
+
+```yaml
+  - type: <client-type>
+    ...
+    models:
+      - name: xxxx
+        type: reranker 
+        max_input_tokens: 2048
+```
+
+> `type: reranker` indicates a reranking model.
+
+#### Set socks/http(s) proxy
 
 ```yaml
 clients:
-  - type: openai-compatible
+  - type: <client-type>
     ...
     extra:
-      proxy: socks5://127.0.0.1:1080 
+      proxy: socks5://127.0.0.1:1080 # or http://127.0.0.1:8080
 ```
 
 ### Patch API request
 
 AIChat supports patching request url, headers and body.  
+
+```yaml
+clients:
+  - type: <client-type>
+    ...
+    patch:                                          # Patch api
+      chat_completions:                             # Api type, possible values: chat_completions, embeddings, and rerank
+        <regex>:                                    # The regex to match model names, e.g. '.*' 'gpt-4o' 'gpt-4o|gpt-4-.*'
+          url: ''                                   # Patch request url
+          body:                                     # Patch request body
+            <json>
+          headers:                                  # Patch request headers
+            <key>: <value>
+```
 
 #### Patch `gemini` for using the most relaxed security settings
 
@@ -212,4 +243,41 @@ clients:
                 threshold: BLOCK_NONE
               - category: HARM_CATEGORY_DANGEROUS_CONTENT
                 threshold: BLOCK_NONE
+```
+
+#### Patch `deepseek` for using the beta API usage
+
+```yaml
+```yaml
+clients:
+  - type: openai-compatible
+    name: deepseek
+    ...
+    patch:
+      chat_completions:
+        '.*':
+          url: https://api.deepseek.com/beta/chat/completions
+```
+
+### Add client for openai-compatible API provider
+
+```yaml
+clients:
+  - type: openai-compatible
+    name: local
+    api_base: http://localhost:8080/v1
+    # api_key: PROTECTED
+    models:
+      - name: gpt-4
+        max_input_tokens: 8192
+        supports_function_calling: true
+      - name: gpt-4-vision-preview
+        max_input_tokens: 8192
+        supports_vision: true
+      - name: text-embedding-ada-002
+        type: embedding
+        default_chunk_size: 1500
+        max_batch_size: 50
+      - name: jina-reranker-v1-base-en
+        type: reranker
 ```
