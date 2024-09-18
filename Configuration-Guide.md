@@ -50,6 +50,24 @@ wrap: no                         # Controls text wrapping (no, auto, <max-width>
 wrap_code: false                 # Enables or disables wrapping of code blocks
 ```
 
+## Function calling
+
+These configurations mainly for function calling.
+
+```yaml
+# Visit https://github.com/sigoden/llm-functions for setup instructions
+function_calling: true           # Enables or disables function calling (Globally).
+mapping_tools:                   # Alias for a tool or toolset
+  fs: 'fs_cat,fs_ls,fs_mkdir,fs_rm,fs_write'
+use_tools: null                  # Which tools to use by default
+```
+
+If we set `function_calling: false`, it globally disables all function calling.
+
+The `mapping_tools` configures the grouping of tools for ease of use tools later. For example, we can create an `fs` group that includes all fs-related tools.
+
+If we set `use_tools: fs`, it's easy to use all fs-related tools. 
+
 ## Prelude
 
 AIChat also have many working states: normal, role, session, rag, and agent.
@@ -96,25 +114,6 @@ If `save_session: false` is set, AIChat will exit without saving the session.
 
 When the chat history tokens exceed `compress_threshold`, AIChat automatically compresses the session. `summarize_prompt` is used to guide the LLM in summarizing the chat history, and `summary_prompt` is used to include the history summary.
 
-## Function calling
-
-These configurations mainly for function calling.
-
-```yaml
-# Visit https://github.com/sigoden/llm-functions for setup instructions
-function_calling: true           # Enables or disables function calling (Globally).
-mapping_tools:                   # Alias for a tool or toolset
-  fs: 'fs_cat,fs_ls,fs_mkdir,fs_rm,fs_write'
-use_tools: null                  # Which tools to use by default
-```
-
-If we set `function_calling: false`, it globally disables all function calling.
-
-The `mapping_tools` configures the grouping of tools for ease of use tools later. For example, we can create an `fs` group that includes all fs-related tools.
-
-If we set `use_tools: fs`, it's easy to use all fs-related tools. 
-
-
 ## RAG
 
 These configurations mainly set the parameters of the RAG.
@@ -127,7 +126,6 @@ rag_chunk_size: null                        # Specifies the chunk size
 rag_chunk_overlap: null                     # Specifies the chunk overlap
 rag_min_score_vector_search: 0              # Specifies the minimum relevance score for vector-based searching
 rag_min_score_keyword_search: 0             # Specifies the minimum relevance score for keyword-based searching
-rag_min_score_rerank: 0                     # Specifies the minimum relevance score for reranking
 # Defines the query structure using variables like __CONTEXT__ and __INPUT__ to tailor searches to specific needs
 rag_template: |
   ...
@@ -148,6 +146,12 @@ light_theme: false               # Activates a light color theme when true. env:
 # Custom REPL prompt, see https://github.com/sigoden/aichat/wiki/Custom-REPL-Prompt for more details
 left_prompt: '...'
 right_prompt: '...'
+```
+
+## Misc
+
+```yaml
+serve_addr: 127.0.0.1:8000                  # Default serve listening address 
 ```
 
 ## Clients

@@ -11,7 +11,7 @@ A role primarily consists of a name and a prompt, alongside several optional con
 
 Below is an example of the `grammar-genie` role located at `<aichat-config-dir>/roles/grammar-genie.md`:
 
-```md
+```
 ---
 model: openai:gpt-4o
 temperature: 0
@@ -19,6 +19,14 @@ top_p: 0
 
 ---
 Your task is to take the text provided and rewrite it into a clear, grammatically correct version while preserving the original meaning as closely as possible. Correct any spelling mistakes, punctuation errors, verb tense issues, word choice problems, and other grammatical mistakes.
+```
+
+Just like `%functions%`, we can also create a role with only `use_tools` configuration that specify the functions to include when chatting.
+
+```
+---
+use_tools: web_search,excute_command
+---
 ```
 
 ## Types of Prompts

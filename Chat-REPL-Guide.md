@@ -31,24 +31,27 @@ The core of AIChat is Chat-REPL.
 .save role               Save the current role to file
 .exit role               Leave the role
 .session                 Begin a session
-.info session            View session info
-.edit session            Edit the current session 
 .clear messages          Erase messages in the current session
+.info session            View session info
+.edit session            Edit the current session
 .save session            Save the current session to file
 .exit session            End the session
 .rag                     Init or use the RAG
-.info rag                View RAG info
 .rebuild rag             Rebuild the RAG to sync document changes
+.sources rag             View the RAG sources in the last query
+.info rag                View RAG info
 .exit rag                Leave the RAG
 .agent                   Use a agent
-.info agent              View agent info
 .starter                 Use the conversation starter
 .variable                Set agent variable
+.save agent-config       Save the current agent config to file
+.info agent              View agent info
 .exit agent              Leave the agent
 .file                    Include files with the message
 .continue                Continue the response
 .regenerate              Regenerate the last response
-.set                     Adjust settings
+.set                     Adjust runtime configuration
+.delete                  Delete roles/sessions/RAGs/agents
 .copy                    Copy the last response
 .exit                    Exit the REPL
 
@@ -128,6 +131,8 @@ With sessions, AIChat conducts context-aware conversations.
 
 ![aichat-session](https://github.com/sigoden/aichat/assets/4012553/1444c5c9-ea67-4ad2-80df-a76954e8cce0)
 
+#### `.clear messages` - Erase messages in the current session
+
 #### `.save session` - save the current session to file
 
 #### `.edit session` - edit the current session
@@ -138,7 +143,9 @@ Seamlessly integrates document interactions into your chat experience.
 
 ![repl-rag](https://github.com/user-attachments/assets/81b81409-460a-4aec-9e08-a3c3da5492d0)
 
-#### `.rebuild rag` - Rebuild the RAG to sync document changes
+#### `.rebuild rag` - rebuild the RAG to sync document changes
+
+#### `.sources rag` - view the RAG sources in the last query
 
 ### `.agent` - chat with an AI agent
 
@@ -146,9 +153,9 @@ Seamlessly integrates document interactions into your chat experience.
 
 #### `.starter` - use the agent's conversation starter
 
-#### `.variable <name> <value>` - Rebuild the RAG to sync document changes
+#### `.variable <name> <value>` -  set agent variable
 
-#### `.variable` - set agent variable
+#### `.edit agent-config` - edit the current agent config
 
 ### `.continue` - continue the response
 
@@ -174,7 +181,7 @@ Usage: .file <file>... [-- text...]
 .file https://github.com/sigoden/aichat/blob/main/README.md -- what is the features of AIchat?
 ```
 
-### `.set` - adjust settings (non-persistent)
+### `.set` - Adjust runtime configuration
 
 ```
 .set <tab>
@@ -184,25 +191,29 @@ Usage: .file <file>... [-- text...]
 .set dry_run true
 .set stream false
 .set save true
-.set save_session true
-.set compress_threshold 1000
 .set function_calling true
 .set use_tools <tab>
+.set agent_prelude temp
+.set save_session true
+.set compress_threshold 1000
 .set rag_reranker_model <tab>
 .set rag_top_k 4
 .set highlight true
 ```
 
+### `.delete` - delete roles/sessions/RAGs/agents
+
+![repl-delete](https://github.com/user-attachments/assets/e4b3fbf9-4685-41c4-a698-2d79fb5cd608)
+
 ### `.info` - view information
 
-- `.info`: View system information
-- `.info role`: view your current role information.
-- `.info session`: view your current session information.
-- `.info rag`: view your current RAG information.
-- `.info agent`: view your current agent information.
+- `.info`: View system info
+- `.info role`: View role info
+- `.info session`: View session info
+- `.info rag`: View RAG info
+- `.info agent`: View agent info
 
-
-### `.exit` - exit state/program
+### `.exit` - exit role/session/rag/agent
 
 - `.exit`: Exit the program.
 - `.exit role`: Exit the role.
