@@ -69,7 +69,7 @@ serve_addr: 17.0.0.1:8000         # env: AICHAT_SERVE_ADDR
 ## Agent-Related Envs
 
 - `{agent}_FUNCTIONS_DIR`: Customize the location of the agent's config dir. e.g. `CODER_FUNCTIONS_DIR`.
-- `{agent}_CONFIG_DIR`: Customize the location of the agent's config dir. e.g. `CODER_CONFIG_DIR`.
+- `{agent}_DATA_DIR`: Customize the location of the agent's data dir. e.g. `CODER_DATA_DIR`.
 
 ## Logging Envs
 
@@ -81,3 +81,4 @@ serve_addr: 17.0.0.1:8000         # env: AICHAT_SERVE_ADDR
 - `HTTPS_RPOXY`/`ALL_PROXY`: Specify a globally proxy server.
 - `NO_COLOR`: Disable the use of color.
 - `EDITOR`: Specify the default editor.
+- `XDG_CONFIG_HOME`: Locate the config dir.

@@ -11,7 +11,8 @@ Options:
       --prompt <PROMPT>      Use the system prompt
   -r, --role <ROLE>          Select a role
   -s, --session [<SESSION>]  Start or join a session
-      --save-session         Forces the session to be saved
+      --empty-session        Ensure the session is empty
+      --save-session         Force the session to be saved
   -a, --agent <AGENT>        Start a agent
   -R, --rag <RAG>            Start a RAG
       --serve [<ADDRESS>]    Serve the LLM API and WebAPP
@@ -65,7 +66,7 @@ aichat -f a.png -f b.png diff images            # Use files
 
 Simply input what you want to do in natural language, and aichat will prompt and run the command that achieves your intent.
 
-![aichat-execute](https://github.com/sigoden/aichat/assets/4012553/f99bcd8f-26be-468f-a35e-197e65260f91)
+![aichat-execute](https://github.com/user-attachments/assets/0c77e901-0da2-4151-aefc-a2af96bbb004)
 
 **AIChat is aware of OS and shell you are using, it will provide shell command for specific system you have.**
 
@@ -93,7 +94,7 @@ By using the `--code` or `-c` parameter, you can specifically request pure code 
 
 **The `-c/--code` with pipe ensures the extraction of code from Markdown.**
 
-## Use Files
+## Use Files & Urls
 
 The `-f/--file` can be used to send files to LLMs. 
 
@@ -101,13 +102,13 @@ The `-f/--file` can be used to send files to LLMs.
 # Use local file
 aichat -f data.txt
 # Use image file
-aichat -f image.png Recognize text
+aichat -f image.png ocr
 # Use multi files
-aichat -f dir/file1 -f dir/file2 summarize
-# Use local dir
+aichat -f file1 -f file2 explain
+# Use local dirs
 aichat -f dir/ summarize
-# Use websiste
-aichat -f https://example.com/readme Summarize    # Use website
+# Use remote URLs
+aichat -f https://example.com/page summarize
 ```
 
 ## Run Server

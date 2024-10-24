@@ -31,7 +31,8 @@ The core of AIChat is Chat-REPL.
 .save role               Save the current role to file
 .exit role               Leave the role
 .session                 Begin a session
-.clear messages          Erase messages in the current session
+.empty session           Erase messages in the current session
+.compress session        Compress messages in the current session
 .info session            View session info
 .edit session            Edit the current session
 .save session            Save the current session to file
@@ -50,9 +51,9 @@ The core of AIChat is Chat-REPL.
 .file                    Include files with the message
 .continue                Continue the response
 .regenerate              Regenerate the last response
+.copy                    Copy the last response
 .set                     Adjust runtime configuration
 .delete                  Delete roles/sessions/RAGs/agents
-.copy                    Copy the last response
 .exit                    Exit the REPL
 
 Type ::: to start multi-line editing, type ::: to finish it.
@@ -131,7 +132,9 @@ With sessions, AIChat conducts context-aware conversations.
 
 ![aichat-session](https://github.com/sigoden/aichat/assets/4012553/1444c5c9-ea67-4ad2-80df-a76954e8cce0)
 
-#### `.clear messages` - Erase messages in the current session
+#### `.empty session` - Erase messages in the current session
+
+#### `.compress session` - Compress messages in the current session
 
 #### `.save session` - save the current session to file
 
