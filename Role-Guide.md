@@ -25,7 +25,7 @@ Just like `%functions%`, we can also create a role with only `use_tools` configu
 
 ```
 ---
-use_tools: web_search,excute_command
+use_tools: web_search,execute_command
 ---
 ```
 

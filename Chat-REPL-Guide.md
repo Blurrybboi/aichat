@@ -63,8 +63,6 @@ Press Ctrl+C to cancel the response, Ctrl+D to exit the REPL.
 
 ### `.model` - change the current LLM
 
-![repl-model](https://github.com/sigoden/aichat/assets/4012553/950ddda3-a561-4761-ba07-47ca142d35f2)
-
 ```
 openai:gpt-4o     128000 /     4096  |       5 /     15    👁 ⚒ 
 |                 |            |             |       |     |  └─ support function callings
@@ -77,100 +75,64 @@ openai:gpt-4o     128000 /     4096  |       5 /     15    👁 ⚒
 └─ model id
 ```
 
+![aichat-repl-model](https://github.com/sigoden/aichat/assets/4012553/950ddda3-a561-4761-ba07-47ca142d35f2)
+
 ### `.role` - use a predefined role
 
-Use the role:
-
 ```
-> .role emoji
-emoji> hello
-👋
-```
-
-View the role details:
-```
-emoji> .info emoji
-name: emoji
-prompt: 'I want you to translate the sentences I write into emojis. I will write the sentence, and you will express it with emojis. I just want you to express it with emojis. I don''t want you to reply with anything but emoji. The sentence to be translated: __INPUT__'
+.role                    Create or switch to a specific role
+.info role               View role info
+.edit role               Edit the current role
+.save role               Save the current role to file
+.exit role               Leave the role
 ```
 
-Leave the role:
-```
-emoji> .exit role
-
-> hello
-Hello there! How can I assist you today?
-```
-
-Use the role without switching to it (Can be used in session or agent context):
-```
-> .role emoji hello
-👋
-
->
-```
-
-#### `.save role` - save the current role to file
-
-#### `.edit role` - Edit the current role
+![aichat-repl-role](https://github.com/user-attachments/assets/b07523ff-fe64-4895-ae90-91eef12c6963)
 
 ### `.prompt` - use a temporary role
 
-Use the `.prompt` feature to create a temporary role specifically for this purpose.
+Compared to `.role`, `.prompt` does persist to a file; it creates and switches to a temporary role.
 
-```
-> .prompt your are a js console
-
-%%> Date.now()
-1658333431437
-```
+![aichat-repl-prompt](https://github.com/user-attachments/assets/c979bce8-2d66-4540-b34b-fda78afbe432)
 
 ### `.session` - begin a chat session
 
-By default, AIChat behaves in a one-off request/response manner.
-With sessions, AIChat conducts context-aware conversations.
+```
+.session                 Begin a session
+.empty session           Erase messages in the current session
+.compress session        Compress messages in the current session
+.info session            View session info
+.edit session            Edit the current session
+.save session            Save the current session to file
+.exit session            End the session
+```
 
-![aichat-session](https://github.com/sigoden/aichat/assets/4012553/1444c5c9-ea67-4ad2-80df-a76954e8cce0)
-
-#### `.empty session` - Erase messages in the current session
-
-#### `.compress session` - Compress messages in the current session
-
-#### `.save session` - save the current session to file
-
-#### `.edit session` - edit the current session
+![aichat-repl-session](https://github.com/user-attachments/assets/d962c726-99a9-4638-b8d8-0b6064edbdb4)
 
 ### `.rag` - chat with knowledge
 
-Seamlessly integrates document interactions into your chat experience.
+```
+.rag                     Init or use the RAG
+.rebuild rag             Rebuild the RAG to sync document changes
+.sources rag             View the RAG sources in the last query
+.info rag                View RAG info
+.exit rag                Leave the RAG
+```
 
-![repl-rag](https://github.com/user-attachments/assets/81b81409-460a-4aec-9e08-a3c3da5492d0)
-
-#### `.rebuild rag` - rebuild the RAG to sync document changes
-
-#### `.sources rag` - view the RAG sources in the last query
+![aichat-repl-rag](https://github.com/user-attachments/assets/8ca6b54a-c721-485b-b083-e6a93ecce4b0)
 
 ### `.agent` - chat with an AI agent
 
+```
+.agent                   Use a agent
+.starter                 Use the conversation starter
+.variable                Set agent variable
+.save agent-config       Save the current agent config to file
+.info agent              View agent info
+.exit agent              Leave the agent
+```
+
 ![repl-agent](https://github.com/user-attachments/assets/0b7e687d-e642-4e8a-b1c1-d2d9b2da2b6b)
-
-#### `.starter` - use the agent's conversation starter
-
-#### `.variable <name> <value>` -  set agent variable
-
-#### `.edit agent-config` - edit the current agent config
-
-### `.continue` - continue the response
-
-This command is often used to resume generation that was interrupted due to the response exceeding the length limit.
-
-![repl-continue](https://github.com/sigoden/aichat/assets/4012553/478623ba-ebaa-4855-a232-c16536d1651d)
-
-### `.regenerate` - regenerate the last response
-
-If the response is interrupted or unsatisfactory, you can regenerate it with `.regenerate`.
-
-![repl-regenerate](https://github.com/sigoden/aichat/assets/4012553/72484983-b7ea-4e23-b0a2-a66a24c96922)
 
 ### `.file` - read files and use them as input
 
@@ -183,6 +145,18 @@ Usage: .file <file>... [-- text...]
 .file https://ibb.co/a.png https://ibb.co/b.png -- what is the difference?
 .file https://github.com/sigoden/aichat/blob/main/README.md -- what is the features of AIchat?
 ```
+
+### `.continue` - continue the response
+
+This command is often used to resume generation that was interrupted due to the response exceeding the length limit.
+
+![repl-continue](https://github.com/sigoden/aichat/assets/4012553/478623ba-ebaa-4855-a232-c16536d1651d)
+
+### `.regenerate` - regenerate the last response
+
+If the response is interrupted or unsatisfactory, you can regenerate it with `.regenerate`.
+
+![repl-regenerate](https://github.com/sigoden/aichat/assets/4012553/72484983-b7ea-4e23-b0a2-a66a24c96922)
 
 ### `.set` - Adjust runtime configuration
 
@@ -206,7 +180,7 @@ Usage: .file <file>... [-- text...]
 
 ### `.delete` - delete roles/sessions/RAGs/agents
 
-![repl-delete](https://github.com/user-attachments/assets/e4b3fbf9-4685-41c4-a698-2d79fb5cd608)
+![aichat-repl-delete](https://github.com/user-attachments/assets/7dc41e4d-090f-4951-b185-aff3dc6e1a6f)
 
 ### `.info` - view information
 
