@@ -152,7 +152,27 @@ right_prompt: '...'
 
 ```yaml
 serve_addr: 127.0.0.1:8000                  # Default serve listening address 
+user_agent: null                            # Set User-Agent HTTP header, use `auto` for aichat/<current-version>
 ```
+
+## Agent-specific
+
+The following are the unique configuration items for the agent:
+
+```yaml
+model: openai:gpt-4o             # Specify the LLM to use
+temperature: null                # Set default temperature parameter
+top_p: null                      # Set default top-p parameter, range (0, 1)
+use_tools: null                  # Which additional tools to use by agent. (e.g. 'fs,web_search')
+agent_prelude: null              # Set a session to use when starting the agent. (e.g. temp, default)
+
+variables:                       # Custom default values for the agent variables
+  <key>: <value>
+```
+
+The agent configuration file is located at `<aichat-config-dir>/agents/<agent-name>/config.yaml`, 
+
+You can obtain the agent configuration directory by using the command `aichat --agent <agent-name> --info | grep data_dir`.
 
 ## Clients
 

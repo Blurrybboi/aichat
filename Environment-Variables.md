@@ -68,8 +68,20 @@ serve_addr: 17.0.0.1:8000         # env: AICHAT_SERVE_ADDR
 
 ## Agent-Related Envs
 
-- `{agent}_FUNCTIONS_DIR`: Customize the location of the agent's config dir. e.g. `CODER_FUNCTIONS_DIR`.
-- `{agent}_DATA_DIR`: Customize the location of the agent's data dir. e.g. `CODER_DATA_DIR`.
+- `<AGENT_NAME>_FUNCTIONS_DIR`: Customize the location of the agent's config dir. e.g. `CODER_FUNCTIONS_DIR`.
+- `<AGENT_NAME>_DATA_DIR`: Customize the location of the agent's data dir. e.g. `CODER_DATA_DIR`.
+- `<AGENT_NAME>_CONFIG_FILE`: Customize the location of the agent's config file. e.g. `CODER_CONFIG_FILE`.
+
+Below are some commonly used agent configuration items and their corresponding environment variables:
+
+```yaml
+model: openai:gpt-4o             # env: <AGENT_NAME>_MODEL
+temperature: null                # env: <AGENT_NAME>_TEMPERATURE
+top_p: null                      # env: <AGENT_NAME>_TOP_P
+use_tools: null                  # env: <AGENT_NAME>_USE_TOOLS
+agent_prelude: null              # env: <AGENT_NAME>_AGENT_PRELUDE
+variables:                       # env: <AGENT_NAME>_VARIABLES
+```
 
 ## Logging Envs
 

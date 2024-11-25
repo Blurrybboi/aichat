@@ -113,6 +113,7 @@ Compared to `.role`, `.prompt` does persist to a file; it creates and switches t
 
 ```
 .rag                     Init or use the RAG
+.edit rag-docs           Edit the RAG documents
 .rebuild rag             Rebuild the RAG to sync document changes
 .sources rag             View the RAG sources in the last query
 .info rag                View RAG info
@@ -127,7 +128,6 @@ Compared to `.role`, `.prompt` does persist to a file; it creates and switches t
 .agent                   Use a agent
 .starter                 Use the conversation starter
 .variable                Set agent variable
-.save agent-config       Save the current agent config to file
 .info agent              View agent info
 .exit agent              Leave the agent
 ```

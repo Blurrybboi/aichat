@@ -12,7 +12,7 @@ Options:
   -r, --role <ROLE>          Select a role
   -s, --session [<SESSION>]  Start or join a session
       --empty-session        Ensure the session is empty
-      --save-session         Force the session to be saved
+      --save-session         Ensure the new conversation is saved to the session
   -a, --agent <AGENT>        Start a agent
   -R, --rag <RAG>            Start a RAG
       --serve [<ADDRESS>]    Serve the LLM API and WebAPP
@@ -72,7 +72,7 @@ Simply input what you want to do in natural language, and aichat will prompt and
 
 ## Shell Integration
 
-This is a **very handy feature**, which allows you to use `aichat` intelligent completions directly in your terminal.
+Simply type `alt+e` to let `aichat` provide intelligent completions directly in your terminal.
 
 ![aichat-integration](https://github.com/sigoden/aichat/assets/4012553/873ebf23-226c-412e-a34f-c5aaa7017524)
 
