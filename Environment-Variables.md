@@ -37,6 +37,8 @@ highlight: true                   # env: AICHAT_HIGHLIGHT
 light_theme: false                # env: AICHAT_LIGHT_THEME
 
 serve_addr: 17.0.0.1:8000         # env: AICHAT_SERVE_ADDR
+user_agent: null                  # env: AICHAT_USER_AGENT
+save_shell_history: true          # env: AICHAT_SAVE_SHELL_HISTORY
 ```
 
 ## Client-Related Envs

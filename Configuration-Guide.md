@@ -153,6 +153,7 @@ right_prompt: '...'
 ```yaml
 serve_addr: 127.0.0.1:8000                  # Default serve listening address 
 user_agent: null                            # Set User-Agent HTTP header, use `auto` for aichat/<current-version>
+save_shell_history: true                    # Whether to save shell execution command to the history file
 ```
 
 ## Agent-specific

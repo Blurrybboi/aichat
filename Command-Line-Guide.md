@@ -14,7 +14,8 @@ Options:
       --empty-session        Ensure the session is empty
       --save-session         Ensure the new conversation is saved to the session
   -a, --agent <AGENT>        Start a agent
-  -R, --rag <RAG>            Start a RAG
+      --agent-variable <NAME> <VALUE>  Set agent variables
+      --rag <RAG>            Start a RAG
       --serve [<ADDRESS>]    Serve the LLM API and WebAPP
   -e, --execute              Execute commands in natural language
   -c, --code                 Output code only
@@ -48,13 +49,13 @@ aichat -r role1                                 # Use role 'role1'
 aichat -s                                       # Begin a temp session
 aichat -s session1                              # Use session 'session1'
 aichat -a agent1                                # Use agent 'agent1'
-aichat -R rag1                                  # Use RAG 'rag1'
+aichat --rag rag1                               # Use RAG 'rag1'
 
 aichat --info                                   # View system info
 aichat -r role1 --info                          # View role info
 aichat -s session1 --info                       # View session info
 aichat -a agent1 --info                         # View agent info
-aichat -R rag1 --info                           # View RAG info
+aichat --rag rag1 --info                        # View RAG info
 
 cat data.toml | aichat -c to json > data.json   # Pipe Input/Output
 output=$(aichat -S $input)                      # Run in the script

@@ -37,17 +37,17 @@ The core of AIChat is Chat-REPL.
 .edit session            Edit the current session
 .save session            Save the current session to file
 .exit session            End the session
+.agent                   Use a agent
+.starter                 Use the conversation starter
+.variable                Set agent variable
+.info agent              View agent info
+.exit agent              Leave the agent
 .rag                     Init or use the RAG
+.edit rag-docs           Edit the RAG documents
 .rebuild rag             Rebuild the RAG to sync document changes
 .sources rag             View the RAG sources in the last query
 .info rag                View RAG info
 .exit rag                Leave the RAG
-.agent                   Use a agent
-.starter                 Use the conversation starter
-.variable                Set agent variable
-.save agent-config       Save the current agent config to file
-.info agent              View agent info
-.exit agent              Leave the agent
 .file                    Include files with the message
 .continue                Continue the response
 .regenerate              Regenerate the last response
