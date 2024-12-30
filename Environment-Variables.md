@@ -82,6 +82,7 @@ temperature: null                # env: <AGENT_NAME>_TEMPERATURE
 top_p: null                      # env: <AGENT_NAME>_TOP_P
 use_tools: null                  # env: <AGENT_NAME>_USE_TOOLS
 agent_prelude: null              # env: <AGENT_NAME>_AGENT_PRELUDE
+instructions: null               # env: <AGENT_NAME>_INSTRUCTIONS
 variables:                       # env: <AGENT_NAME>_VARIABLES
 ```
 
