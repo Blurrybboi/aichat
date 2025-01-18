@@ -124,8 +124,6 @@ rag_reranker_model: null                    # Specifies the rerank model to use
 rag_top_k: 4                                # Specifies the number of documents to retrieve
 rag_chunk_size: null                        # Specifies the chunk size
 rag_chunk_overlap: null                     # Specifies the chunk overlap
-rag_min_score_vector_search: 0              # Specifies the minimum relevance score for vector-based searching
-rag_min_score_keyword_search: 0             # Specifies the minimum relevance score for keyword-based searching
 # Defines the query structure using variables like __CONTEXT__ and __INPUT__ to tailor searches to specific needs
 rag_template: |
   ...

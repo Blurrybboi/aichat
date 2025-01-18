@@ -39,7 +39,6 @@ The core of AIChat is Chat-REPL.
 .exit session            End the session
 .agent                   Use a agent
 .starter                 Use the conversation starter
-.variable                Set agent variable
 .info agent              View agent info
 .exit agent              Leave the agent
 .rag                     Init or use the RAG
@@ -48,10 +47,11 @@ The core of AIChat is Chat-REPL.
 .sources rag             View the RAG sources in the last query
 .info rag                View RAG info
 .exit rag                Leave the RAG
-.file                    Include files with the message
+.macro                   Execute a macro
+.file                    Include files, directories, URLs or commands
 .continue                Continue the response
-.regenerate              Regenerate the last response
-.copy                    Copy the last response
+.regenerate              Regenerate the response
+.copy                    Copy the last chat response
 .set                     Adjust runtime configuration
 .delete                  Delete roles/sessions/RAGs/agents
 .exit                    Exit the REPL
@@ -127,19 +127,29 @@ Compared to `.role`, `.prompt` does persist to a file; it creates and switches t
 ```
 .agent                   Use a agent
 .starter                 Use the conversation starter
-.variable                Set agent variable
 .info agent              View agent info
 .exit agent              Leave the agent
 ```
 
 ![repl-agent](https://github.com/user-attachments/assets/0b7e687d-e642-4e8a-b1c1-d2d9b2da2b6b)
 
+### `.macro` - Execute a macro
+
+```
+.macro test-function-calling
+.macro within-agent todo list all my todos
+```
+
+![repl-macro](https://github.com/user-attachments/assets/23c2a08f-5bd7-4bf3-817c-c484aa74a651)
+
 ### `.file` - read files and use them as input
 
 ```
-Usage: .file <file>... [-- text...]
+Usage: .file <file|dir|url|%%|cmd>... [-- <text>...]
 
 .file data.txt
+.file %% -- translate last reply to english
+.file `git diff` -- generate git commit message
 .file config.yaml -- convert to toml
 .file screentshot.png -- design a web app based on the image
 .file https://ibb.co/a.png https://ibb.co/b.png -- what is the difference?
@@ -152,7 +162,7 @@ This command is often used to resume generation that was interrupted due to the 
 
 ![repl-continue](https://github.com/sigoden/aichat/assets/4012553/478623ba-ebaa-4855-a232-c16536d1651d)
 
-### `.regenerate` - regenerate the last response
+### `.regenerate` - regenerate the response
 
 If the response is interrupted or unsatisfactory, you can regenerate it with `.regenerate`.
 
@@ -170,7 +180,6 @@ If the response is interrupted or unsatisfactory, you can regenerate it with `.r
 .set save true
 .set function_calling true
 .set use_tools <tab>
-.set agent_prelude temp
 .set save_session true
 .set compress_threshold 1000
 .set rag_reranker_model <tab>

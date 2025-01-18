@@ -98,32 +98,6 @@ Running `aichat -r code echo server in node.js` would generate messages:
 ]
 ```
 
-## Role Arguments
-
-Role arguments can be employed to supply extra parameters to the prompt.
-
-For example, you can create a role file named `convert#json#yaml.md` with the following content:
-
-```
-convert __ARG1__ below to __ARG2__
-```
-
-`#json#yaml` represents `role args`. It contains two arguments:
-
-- arg1 `json` will replace `__ARG1__` in the prompt
-- arg2 `yaml` will replace `__ARG2__` in the prompt
-
-If we run `aichat -r convert#json#yaml`, the prompt will be
-
-```
-convert json below to yaml
-```
-
-If we run `aichat -r convert#yaml#toml`, the prompt will be
-```
-convert yaml below to toml
-```
-
 ## Built-in Roles
 
 AIChat includes these built-in roles:

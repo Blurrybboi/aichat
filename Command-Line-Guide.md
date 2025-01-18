@@ -7,29 +7,32 @@ Arguments:
   [TEXT]...  Input text
 
 Options:
-  -m, --model <MODEL>        Select a LLM model
-      --prompt <PROMPT>      Use the system prompt
-  -r, --role <ROLE>          Select a role
-  -s, --session [<SESSION>]  Start or join a session
-      --empty-session        Ensure the session is empty
-      --save-session         Ensure the new conversation is saved to the session
-  -a, --agent <AGENT>        Start a agent
+  -m, --model <MODEL>                  Select a LLM model
+      --prompt <PROMPT>                Use the system prompt
+  -r, --role <ROLE>                    Select a role
+  -s, --session [<SESSION>]            Start or join a session
+      --empty-session                  Ensure the session is empty
+      --save-session                   Ensure the new conversation is saved to the session
+  -a, --agent <AGENT>                  Start a agent
       --agent-variable <NAME> <VALUE>  Set agent variables
-      --rag <RAG>            Start a RAG
-      --serve [<ADDRESS>]    Serve the LLM API and WebAPP
-  -e, --execute              Execute commands in natural language
-  -c, --code                 Output code only
-  -f, --file <FILE>          Include files with the message
-  -S, --no-stream            Turn off stream mode
-      --dry-run              Display the message without sending it
-      --info                 Display information
-      --list-models          List all available chat models
-      --list-roles           List all roles
-      --list-sessions        List all sessions
-      --list-agents          List all agents
-      --list-rags            List all RAGs
-  -h, --help                 Print help
-  -V, --version              Print version
+      --rag <RAG>                      Start a RAG
+      --rebuild-rag                    Rebuild the RAG to sync document changes
+      --macro <MACRO>                  Execute a macro
+      --serve [<ADDRESS>]              Serve the LLM API and WebAPP
+  -e, --execute                        Execute commands in natural language
+  -c, --code                           Output code only
+  -f, --file <FILE>                    Include files, directories, or URLs
+  -S, --no-stream                      Turn off stream mode
+      --dry-run                        Display the message without sending it
+      --info                           Display information
+      --list-models                    List all available chat models
+      --list-roles                     List all roles
+      --list-sessions                  List all sessions
+      --list-agents                    List all agents
+      --list-rags                      List all RAGs
+      --list-macros                    List all macros
+  -h, --help                           Print help
+  -V, --version                        Print version
 ```
 
 ## Examples
@@ -56,6 +59,9 @@ aichat -r role1 --info                          # View role info
 aichat -s session1 --info                       # View session info
 aichat -a agent1 --info                         # View agent info
 aichat --rag rag1 --info                        # View RAG info
+
+aichat --macro macro1                           # Execute macro 'macro1'
+aichat --macro macro2 arg1 arg2                 # Execute macro 'macro2' with args
 
 cat data.toml | aichat -c to json > data.json   # Pipe Input/Output
 output=$(aichat -S $input)                      # Run in the script
