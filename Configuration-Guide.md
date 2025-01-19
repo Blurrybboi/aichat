@@ -271,7 +271,6 @@ clients:
 #### Patch `deepseek` for using the beta API usage
 
 ```yaml
-```yaml
 clients:
   - type: openai-compatible
     name: deepseek

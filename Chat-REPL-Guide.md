@@ -18,49 +18,6 @@ The core of AIChat is Chat-REPL.
 
 ## REPL Commands
 
-### `.help` - show help message
-
-```
-.help                    Show this help message
-.info                    View system info
-.model                   Change the current LLM
-.prompt                  Create a temporary role using a prompt
-.role                    Create or switch to a specific role
-.info role               View role info
-.edit role               Edit the current role
-.save role               Save the current role to file
-.exit role               Leave the role
-.session                 Begin a session
-.empty session           Erase messages in the current session
-.compress session        Compress messages in the current session
-.info session            View session info
-.edit session            Edit the current session
-.save session            Save the current session to file
-.exit session            End the session
-.agent                   Use a agent
-.starter                 Use the conversation starter
-.info agent              View agent info
-.exit agent              Leave the agent
-.rag                     Init or use the RAG
-.edit rag-docs           Edit the RAG documents
-.rebuild rag             Rebuild the RAG to sync document changes
-.sources rag             View the RAG sources in the last query
-.info rag                View RAG info
-.exit rag                Leave the RAG
-.macro                   Execute a macro
-.file                    Include files, directories, URLs or commands
-.continue                Continue the response
-.regenerate              Regenerate the response
-.copy                    Copy the last chat response
-.set                     Adjust runtime configuration
-.delete                  Delete roles/sessions/RAGs/agents
-.exit                    Exit the REPL
-
-Type ::: to start multi-line editing, type ::: to finish it.
-Press Ctrl+O to open an editor for editing the input buffer.
-Press Ctrl+C to cancel the response, Ctrl+D to exit the REPL.
-```
-
 ### `.model` - change the current LLM
 
 ```
@@ -77,63 +34,64 @@ openai:gpt-4o     128000 /     4096  |       5 /     15    👁 ⚒
 
 ![aichat-repl-model](https://github.com/sigoden/aichat/assets/4012553/950ddda3-a561-4761-ba07-47ca142d35f2)
 
-### `.role` - use a predefined role
+### `.role` - role management
 
 ```
-.role                    Create or switch to a specific role
+.role                    Create or switch to a role
 .info role               View role info
-.edit role               Edit the current role
-.save role               Save the current role to file
-.exit role               Leave the role
+.edit role               Edit current role
+.save role               Save current role to file
+.exit role               Exit active role
 ```
 
 ![aichat-repl-role](https://github.com/user-attachments/assets/b07523ff-fe64-4895-ae90-91eef12c6963)
 
-### `.prompt` - use a temporary role
+### `.prompt` - set a temporary role using a prompt 
 
 Compared to `.role`, `.prompt` does persist to a file; it creates and switches to a temporary role.
 
 ![aichat-repl-prompt](https://github.com/user-attachments/assets/c979bce8-2d66-4540-b34b-fda78afbe432)
 
-### `.session` - begin a chat session
+### `.session` - session management
 
 ```
-.session                 Begin a session
-.empty session           Erase messages in the current session
-.compress session        Compress messages in the current session
+.session                 Start or switch to a session
+.empty session           Clear session messages
+.compress session        Compress session messages
 .info session            View session info
-.edit session            Edit the current session
-.save session            Save the current session to file
-.exit session            End the session
+.edit session            Edit current session
+.save session            Save current session to file
+.exit session            Exit active session
 ```
 
 ![aichat-repl-session](https://github.com/user-attachments/assets/d962c726-99a9-4638-b8d8-0b6064edbdb4)
 
-### `.rag` - chat with knowledge
+### `.agent` - chat with AI agent
 
 ```
-.rag                     Init or use the RAG
-.edit rag-docs           Edit the RAG documents
-.rebuild rag             Rebuild the RAG to sync document changes
-.sources rag             View the RAG sources in the last query
-.info rag                View RAG info
-.exit rag                Leave the RAG
-```
-
-![aichat-repl-rag](https://github.com/user-attachments/assets/8ca6b54a-c721-485b-b083-e6a93ecce4b0)
-
-### `.agent` - chat with an AI agent
-
-```
-.agent                   Use a agent
-.starter                 Use the conversation starter
+.agent                   Use an agent
+.starter                 Use a conversation starter
+.edit agent-config       Edit agent configuration file
 .info agent              View agent info
-.exit agent              Leave the agent
+.exit agent              Leave agent
 ```
 
 ![repl-agent](https://github.com/user-attachments/assets/0b7e687d-e642-4e8a-b1c1-d2d9b2da2b6b)
 
-### `.macro` - Execute a macro
+### `.rag` - chat with documents
+
+```
+.rag                     Initialize or access RAG
+.edit rag-docs           Manage RAG documents
+.rebuild rag             Rebuild RAG for document changes
+.sources rag             View RAG sources for last query
+.info rag                View RAG info
+.exit rag                Leave RAG
+```
+
+![aichat-repl-rag](https://github.com/user-attachments/assets/8ca6b54a-c721-485b-b083-e6a93ecce4b0)
+
+### `.macro` - execute a macro
 
 ```
 .macro test-function-calling
@@ -156,7 +114,9 @@ Usage: .file <file|dir|url|%%|cmd>... [-- <text>...]
 .file https://github.com/sigoden/aichat/blob/main/README.md -- what is the features of AIchat?
 ```
 
-### `.continue` - continue the response
+> Note: `%%` and `cmd` are supported starting from V0.27.0.
+
+### `.continue` - continue previous response
 
 This command is often used to resume generation that was interrupted due to the response exceeding the length limit.
 
@@ -168,7 +128,9 @@ If the response is interrupted or unsatisfactory, you can regenerate it with `.r
 
 ![repl-regenerate](https://github.com/sigoden/aichat/assets/4012553/72484983-b7ea-4e23-b0a2-a66a24c96922)
 
-### `.set` - Adjust runtime configuration
+### `.copy` - copy last response
+
+### `.set` - adjust runtime settings
 
 ```
 .set <tab>
@@ -187,22 +149,38 @@ If the response is interrupted or unsatisfactory, you can regenerate it with `.r
 .set highlight true
 ```
 
+### `.edit` - modify config/role/session/agent-config/rag-docs
+
+```
+.edit config             Edit configuration file
+.edit role               Edit current role
+.edit session            Edit current session
+.edit agent-config       Edit agent configuration file
+.edit rag-docs           Manage RAG documents
+```
+
 ### `.delete` - delete roles/sessions/RAGs/agents
 
 ![aichat-repl-delete](https://github.com/user-attachments/assets/7dc41e4d-090f-4951-b185-aff3dc6e1a6f)
 
-### `.info` - view information
+### `.info` - view system/role/session/agent/RAG info
 
-- `.info`: View system info
-- `.info role`: View role info
-- `.info session`: View session info
-- `.info rag`: View RAG info
-- `.info agent`: View agent info
+```
+.info                    View system info
+.info role               View role info
+.info session            View session info
+.info agent              View agent info
+.info rag                View RAG info
+```
 
-### `.exit` - exit role/session/rag/agent
+### `.exit` - exit role/session/RAG/agent/REPL
 
-- `.exit`: Exit the program.
-- `.exit role`: Exit the role.
-- `.exit session`: Exit the session.
-- `.exit rag`: Exit the RAG.
-- `.exit agent`: Exit the agent.
+```
+.exit role               Exit active role
+.exit session            Exit active session
+.exit agent              Leave agent
+.exit rag                Leave RAG
+.exit                    Exit REPL
+```
+
+### `.help` - show help guide

@@ -45,6 +45,7 @@ aichat -e install nvim                          # Execute command
 aichat -c fibonacci in js                       # Generate code
 
 aichat --serve                                  # Run server
+aichat --serve 0.0.0.0:8080                     # Run server with addr
 
 aichat -m openai:gpt-4o                         # Select LLM
 
