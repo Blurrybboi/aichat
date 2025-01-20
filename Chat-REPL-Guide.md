@@ -38,8 +38,8 @@ openai:gpt-4o     128000 /     4096  |       5 /     15    👁 ⚒
 
 ```
 .role                    Create or switch to a role
-.info role               View role info
-.edit role               Edit current role
+.info role               Show role info
+.edit role               Modify current role
 .save role               Save current role to file
 .exit role               Exit active role
 ```
@@ -58,8 +58,8 @@ Compared to `.role`, `.prompt` does persist to a file; it creates and switches t
 .session                 Start or switch to a session
 .empty session           Clear session messages
 .compress session        Compress session messages
-.info session            View session info
-.edit session            Edit current session
+.info session            Show session info
+.edit session            Modify current session
 .save session            Save current session to file
 .exit session            Exit active session
 ```
@@ -71,8 +71,8 @@ Compared to `.role`, `.prompt` does persist to a file; it creates and switches t
 ```
 .agent                   Use an agent
 .starter                 Use a conversation starter
-.edit agent-config       Edit agent configuration file
-.info agent              View agent info
+.edit agent-config       Modify agent configuration file
+.info agent              Show agent info
 .exit agent              Leave agent
 ```
 
@@ -82,10 +82,10 @@ Compared to `.role`, `.prompt` does persist to a file; it creates and switches t
 
 ```
 .rag                     Initialize or access RAG
-.edit rag-docs           Manage RAG documents
+.edit rag-docs           Add or remove documents from an existing RAG
 .rebuild rag             Rebuild RAG for document changes
-.sources rag             View RAG sources for last query
-.info rag                View RAG info
+.sources rag             Show RAG sources for last query
+.info rag                Show RAG info
 .exit rag                Leave RAG
 ```
 
@@ -114,7 +114,7 @@ Usage: .file <file|dir|url|%%|cmd>... [-- <text>...]
 .file https://github.com/sigoden/aichat/blob/main/README.md -- what is the features of AIchat?
 ```
 
-> Note: `%%` and `cmd` are supported starting from V0.27.0.
+> NOTE: `%%` and `cmd` are supported starting from V0.27.0.
 
 ### `.continue` - continue previous response
 
@@ -152,25 +152,25 @@ If the response is interrupted or unsatisfactory, you can regenerate it with `.r
 ### `.edit` - modify config/role/session/agent-config/rag-docs
 
 ```
-.edit config             Edit configuration file
-.edit role               Edit current role
-.edit session            Edit current session
-.edit agent-config       Edit agent configuration file
-.edit rag-docs           Manage RAG documents
+.edit config             Modify configuration file
+.edit role               Modify current role
+.edit session            Modify current session
+.edit agent-config       Modify agent configuration file
+.edit rag-docs           Add or remove documents from an existing RAG
 ```
 
 ### `.delete` - delete roles/sessions/RAGs/agents
 
 ![aichat-repl-delete](https://github.com/user-attachments/assets/7dc41e4d-090f-4951-b185-aff3dc6e1a6f)
 
-### `.info` - view system/role/session/agent/RAG info
+### `.info` - display system/role/session/agent/RAG info
 
 ```
-.info                    View system info
-.info role               View role info
-.info session            View session info
-.info agent              View agent info
-.info rag                View RAG info
+.info                    Show system info
+.info role               Show role info
+.info session            Show session info
+.info agent              Show agent info
+.info rag                Show RAG info
 ```
 
 ### `.exit` - exit role/session/RAG/agent/REPL

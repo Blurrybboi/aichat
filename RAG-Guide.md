@@ -4,59 +4,15 @@ AICHAT has a built-in vector database and full-text search engine, eliminating r
 
 ![aichat-rag](https://github.com/user-attachments/assets/81b81409-460a-4aec-9e08-a3c3da5492d0)
 
-## Init RAG
+## Document Sources
 
-**From Files**
-
-```
-> Add documents: /tmp/dir1/file1;/tmp/dir1/file2
-Loading /tmp/dir1/file1 [1/2]
-Loading /tmp/dir1/file2 [2/2]
-```
-
-**From Directory**
-
-```
-> Add documents: /tmp/dir1/
-Load /tmp/dir1/ [1/1]
-🚀 Loading file /tmp/dir1/file1
-🚀 Loading file /tmp/dir1/file2
-🚀 Loading file /tmp/dir1/file3
-✨ Load directory completed
-```
-
-**From Directory (with file extensions filter)**
-
-```
-> Add documents: /tmp/dir2/**/*.{md,txt}
-Load /tmp/dir2/**/*.{md,txt} [1/1]
-🚀 Loading file /tmp/dir2/file2.md
-🚀 Loading file /tmp/dir2/file1.txt
-✨ Load directory completed
-```
-> AIChat RAG doesn't support glob; it only uses glob syntax for filtering file extensions.
-
-**From Url**
-
-```
-> Add documents: https://sigoden.github.io/mynotes/tools/linux.html
-Load https://sigoden.github.io/mynotes/tools/linux.html [1/1]
-```
-
-**From RecursiveUrl (websites)**
-
-```
-> Add documents: https://sigoden.github.io/mynotes/tools/**
-Load https://sigoden.github.io/mynotes/tools/** [1/1]
-⚙️  maxConnections=5 exclude='' extract='' toMarkdown=true
-🚀 Crawling https://sigoden.github.io/mynotes/tools/
-🚀 Crawling https://sigoden.github.io/mynotes/tools/docker.html
-🚀 Crawling https://sigoden.github.io/mynotes/tools/git.html
-🚀 Crawling https://sigoden.github.io/mynotes/tools/github-ci.html
-🚀 Crawling https://sigoden.github.io/mynotes/tools/linux.html
-🚀 Crawling https://sigoden.github.io/mynotes/tools/redis.html
-✨ Crawl completed
-```
+| Source                  | Example                                              |
+| ----------------------- | ---------------------------------------------------- |
+| Files                   | `/tmp/dir1/file1;/tmp/dir1/file2`                    |
+| Directory               | `/tmp/dir1/`                                         |
+| Directory (extensions)  | `/tmp/dir2/**/*.{md,txt}`                            |
+| Url                     | `https://sigoden.github.io/mynotes/tools/linux.html` |
+| RecursiveUrl (websites) | `https://sigoden.github.io/mynotes/tools/**`         |
 
 > `**` is used to distinguish between Url and RecursiveUrl
 
