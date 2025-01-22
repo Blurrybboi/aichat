@@ -84,7 +84,7 @@ Compared to `.role`, `.prompt` does persist to a file; it creates and switches t
 .rag                     Initialize or access RAG
 .edit rag-docs           Add or remove documents from an existing RAG
 .rebuild rag             Rebuild RAG for document changes
-.sources rag             Show RAG sources for last query
+.sources rag             Show citation sources used in last query
 .info rag                Show RAG info
 .exit rag                Leave RAG
 ```

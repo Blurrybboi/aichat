@@ -1,10 +1,12 @@
 RAG can improve the efficacy of large language model (LLM) applications by leveraging custom data
 
-AICHAT has a built-in vector database and full-text search engine, eliminating reliance on third-party services and  providing ready-to-use RAG functionality.
+AIChat has a built-in vector database and full-text search engine, eliminating reliance on third-party services and  providing ready-to-use RAG functionality.
 
 ![aichat-rag](https://github.com/user-attachments/assets/81b81409-460a-4aec-9e08-a3c3da5492d0)
 
 ## Document Sources
+
+AIChat can build RAG knowledge bases from a variety of document sources.
 
 | Source                  | Example                                              |
 | ----------------------- | ---------------------------------------------------- |
@@ -18,7 +20,7 @@ AICHAT has a built-in vector database and full-text search engine, eliminating r
 
 ## Custom Document Loaders
 
-By default, AICHAT can only process text files. We need to configure the `document_loaders` so AICHAT can handle binary files such as PDFs and DOCXs.
+By default, AIChat can only process text files. We need to configure the `document_loaders` so AIChat can handle binary files such as PDFs and DOCXs.
 
 ```yaml
 # Define document loaders to control how RAG and `.file`/`--file` load files of specific formats.

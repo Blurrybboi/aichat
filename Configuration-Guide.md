@@ -149,9 +149,10 @@ right_prompt: '...'
 ## Misc
 
 ```yaml
-serve_addr: 127.0.0.1:8000                  # Default serve listening address 
+serve_addr: 127.0.0.1:8000                  # Serve listening address 
 user_agent: null                            # Set User-Agent HTTP header, use `auto` for aichat/<current-version>
 save_shell_history: true                    # Whether to save shell execution command to the history file
+sync_models_url: <url>                      # URL to sync model changes from
 ```
 
 ## Agent-specific
