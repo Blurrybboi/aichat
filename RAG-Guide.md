@@ -15,6 +15,7 @@ AIChat can build RAG knowledge bases from a variety of document sources.
 | Directory (extensions)  | `/tmp/dir2/**/*.{md,txt}`                            |
 | Url                     | `https://sigoden.github.io/mynotes/tools/linux.html` |
 | RecursiveUrl (websites) | `https://sigoden.github.io/mynotes/tools/**`         |
+| Document Loader         | `jina:https://example.com/no-static-page`            |
 
 > `**` is used to distinguish between Url and RecursiveUrl
 
@@ -30,6 +31,10 @@ document_loaders:
   # Note: Use `$1` for input file and `$2` for output file. If `$2` is omitted, use stdout as output.
   pdf: 'pdftotext $1 -'                         # Load .pdf file, see https://poppler.freedesktop.org to set up pdftotext
   docx: 'pandoc --to plain $1'                  # Load .docx file, see https://pandoc.org to set up pandoc
+  jina: 'curl -fsSL https://r.jina.ai/$1 -H "Authorization: Bearer <jina_api_key>"'
+  # Load a git repo with https://github.com/bodo-run/yek
+  git: >
+    sh -c "yek $1 --json | jq '[.[] | { path: .filename, contents: .content }]'"
 ```
 
 The `document_loaders` configuration item is a map where the key represents the file extension and the value specifies the corresponding loader command.

@@ -4,6 +4,14 @@ Run `aichat` with the environment variable `AICHAT_LOG_LEVEL=debug`. Then check 
 
 The log contains runtime details and API request and response data, which can help you troubleshoot.
 
+## How to enable web search?
+
+There are two ways to use web search in AIChat
+
+1. **Use a model with built-in web search capabilities**: Some models have web search enabled by default, such as `perplexity:*`, `openrouter:*:oneline`. Some models do not support web search by default, but can be enabled via `patch`. See https://github.com/sigoden/llm-functions/blob/main/tools/web_search_aichat.sh for details.
+
+2. **Use the `web_search` function calling**: Many models do not natively support web search, but their capabilities can be extended with function calling. This means they can use the `web_search` tool, and therefore indirectly gain web search capabilities.
+
 ## Why need compress session?
 
 Sessions require context memory. However, The chat API is stateless. Therefore, each request needs to include the chat history.

@@ -185,10 +185,17 @@ clients:
   - type: <client-type>
     ...
     models:
-      - name: xxxx
+      - name: xxxx                          # The only required field
         max_input_tokens: 100000
+
         supports_vision: true
         supports_function_calling: true
+
+        no_stream: true                     # Add only if LLM does not support stream
+        no_system_message: true             # Add only if LLM does not support system/developer message
+
+        # Currently only used for OpenAI's `o1/o3-mini` to enable markdown format
+        system_prompt_prefix: Formatting re-enabled
 ```
 
 ### Add embedding models
@@ -199,10 +206,12 @@ clients:
     models:
       - name: xxxx
         type: embedding
-        max_input_tokens: 200000
-        max_tokens_per_chunk: 2000
         default_chunk_size: 1500                        
         max_batch_size: 100
+
+        # The following are optional
+        max_input_tokens: 200000
+        max_tokens_per_chunk: 2000
 ```
 
 > `type: embedding` indicates an embedding model.
@@ -214,7 +223,9 @@ clients:
     ...
     models:
       - name: xxxx
-        type: reranker 
+        type: reranker
+
+        # The following are optional
         max_input_tokens: 2048
 ```
 
@@ -287,17 +298,22 @@ clients:
 ```yaml
 clients:
   - type: openai-compatible
-    name: local
-    api_base: http://localhost:8080/v1
+    name: ollama
+    api_base: http://localhost:11434/v1
     api_key: xxx                                      # Optional
     models:
+      - name: deepseek-r1
+        max_input_tokens: 131072
+        supports_reasoning: true
       - name: llama3.1
         max_input_tokens: 128000
         supports_function_calling: true
-      - name: jina-embeddings-v2-base-en
+      - name: llama3.2-vision
+        max_input_tokens: 131072
+        supports_vision: true
+      - name: nomic-embed-text
         type: embedding
-        default_chunk_size: 1500
-        max_batch_size: 100
-      - name: jina-reranker-v2-base-multilingual
-        type: reranker
+        max_tokens_per_chunk: 8192
+        default_chunk_size: 1000
+        max_batch_size: 50
 ```
