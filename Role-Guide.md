@@ -2,6 +2,8 @@
 
 Roles are instrumental in customizing Large Language Model (LLM) behaviors, thereby enhancing user interactions and boosting overall productivity.
 
+![role-demo](https://github.com/user-attachments/assets/4617be36-08d5-48ab-b3f0-64a0b6c72435)
+
 A role primarily consists of a name and a prompt, alongside several optional configurations:
 
 - **`model`:** The preferred LLM (e.g. `openai:gpt-4o`).

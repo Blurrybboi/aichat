@@ -2,6 +2,8 @@
 
 Macros are predefined sequences of REPL commands that automate repetitive tasks or workflows, enabling efficient execution of a series of commands with customizable variables and isolated execution contexts.
 
+![macro-demo](https://github.com/user-attachments/assets/79fba665-c5fe-4aef-8efc-5151864a5bb4)
+
 ## Macro Definition
 
 Macros are defined using YAML files stored in the `<aichat-config-dir>/macros/` directory. Each YAML file represents a single macro, and the filename (excluding the `.yaml` extension) serves as the macro's name.

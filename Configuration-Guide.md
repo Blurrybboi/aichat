@@ -19,7 +19,9 @@ The config file path for each operating system are as follows:
 - macOS: `/Users/Alice/Library/Application Support/aichat/config.yaml`
 - Linux: `/home/alice/.config/aichat/config.yaml`
 
-You can also run the following command to get the config file path: `aichat --info | grep config_file`
+You can also run the following command to get the config file path: `aichat --info | grep config_file`.
+
+> AIChat REPL provides a command to directly edit config.yaml: `.edit config`.
 
 You can modify the configuration file by referring to [config.example.yaml](https://github.com/sigoden/aichat/blob/main/config.example.yaml).
 
