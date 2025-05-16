@@ -76,19 +76,21 @@ AIChat also have many working states: normal, role, session, rag, and agent.
 
 The prelude controls which state AIChat starts in.
 
-The following are configuration items related to `prelude`:
+The following are configuration items related to `*_prelude`:
 
 ```yaml
-prelude: null                    # Set a default role or session to start with (e.g. role:<name>, session:<name>, <session>:<role>)
-repl_prelude: null               # Overrides the `prelude` setting specifically for conversations started in REPL
+repl_prelude: null               # Set a default role or session for REPL mode (e.g. role:<name>, session:<name>, <session>:<role>)
+cmd_prelude: null                # Set a default role or session for CMD mode (e.g. role:<name>, session:<name>, <session>:<role>)
 agent_prelude: null              # Set a session to use when starting a agent. (e.g. temp, default)
 ```
 
-If we want to start in a `coder` role, we can set `prelude: "role:coder"`.
+If we want to start in a `%code%` role in REPL mode, we can set `repl_prelude: "role:%code%"`.
 
-If we want to start in a `coding` session, we can set `prelude: "session:coding"`.
+If we want to start in a `temp` session in REPL mode, we can set `repl_prelude: "session:temp"`.
 
-If we want to start in a `%shell%` role only when entering the REPL, we can use `repl_prelude: "role:%shell%"`.
+If we want to start in a `temp` session and `coder` role in REPL mode, we can set `repl_prelude: "temp:coder"`.
+
+If we want to start in a `%shell%` role in CMD mode, we can use `cmd_prelude: "role:%shell%"`.
 
 The agent prelude only takes effect when entering the agent.  If we set `agent_prelude: default`, it means that the session named "default" will be automatically loaded when entering the agent.
 
